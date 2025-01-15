@@ -1,0 +1,41 @@
+name: Netlify Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js and install dependencies
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20.14.0"
+
+      - name: Install dependencies using npm
+        run: npm install
+
+      - name: Build the React project
+        run: npm run build
+
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+
+      - name: Get commit hash
+        id: commit
+        run: echo "COMMIT_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          COMMIT_HASH: ${{ env.COMMIT_HASH }}
+        run: |
+          echo "Deploying to production site (commit: $COMMIT_HASH)"
+          netlify deploy --build --prod --dir=./build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --message "Deploy commit $COMMIT_HASH to production"
