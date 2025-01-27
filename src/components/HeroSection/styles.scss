@@ -1,0 +1,187 @@
+@use "../../styles/index.scss" as *;
+
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1142px;
+  margin: 50px auto;
+  padding: 0 10px;
+  gap: clamp(50px, 17vw, 192px);
+
+  .hero-content {
+    .hero-title {
+      font-weight: 700;
+      font-size: 42px;
+      line-height: 63px;
+      color: $text-color;
+      max-width: 424px;
+      min-width: 306px;
+    }
+    .hero-description {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 27.2px;
+      color: $smoke-text-color;
+      margin-top: 20px;
+      margin-bottom: 36px;
+      max-width: 335px;
+    }
+    .hero-button {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 30px;
+      color: $white-smoke-color;
+      background-color: $primary-color;
+      border-radius: 7px;
+      padding: 5.5px 33px;
+      border: none;
+    }
+    .hero-stats {
+      margin-top: 75px;
+      display: flex;
+      gap: 40px;
+
+      .hero-stat-item {
+        .hero-stat-icon {
+          max-width: 32px;
+          max-height: 32px;
+        }
+
+        .hero-stat-text {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 27.2px;
+          color: $smoke-text-color;
+          max-width: 105px;
+
+          .number {
+            color: $text-color;
+          }
+        }
+      }
+    }
+  }
+
+  .hero-image-container {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+
+    .hero-image {
+      width: clamp(200px, 50vw, 520px);
+      max-height: 410.62px;
+      border-radius: clamp(50px, 8vw, 100px) 15px 15px 15px;
+      position: absolute;
+      right: 35px;
+      bottom: 35px;
+    }
+    .hero-border {
+      border: solid 2px $light-gray-color;
+      width: clamp(200px, 44vw, 506px);
+      height: clamp(250px, 40vw, 398.25px);
+      border-radius: 15px;
+      margin-top: 40px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    display: grid;
+    justify-content: space-between;
+    max-width: 1142px;
+    margin: 50px auto;
+    padding: 0 10px;
+    gap: 40px;
+
+    .hero-content {
+      .hero-title {
+        font-weight: 700;
+        font-size: 42px;
+        line-height: 63px;
+        color: $text-color;
+        max-width: 424px;
+        min-width: 306px;
+      }
+      .hero-description {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 27.2px;
+        color: $smoke-text-color;
+        margin-top: 20px;
+        margin-bottom: 36px;
+        max-width: 450px;
+      }
+      .hero-button {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+        color: $white-smoke-color;
+        background-color: $primary-color;
+        border-radius: 7px;
+        padding: 5.5px 33px;
+        border: none;
+      }
+
+      .hero-stats {
+        margin-top: 55px;
+        display: flex;
+        gap: 40px;
+
+        .hero-stat-item {
+          .hero-stat-icon {
+            max-width: 32px;
+            max-height: 32px;
+          }
+
+          .hero-stat-text {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 27.2px;
+            color: $smoke-text-color;
+            max-width: 105px;
+
+            .number {
+              color: $text-color;
+            }
+          }
+        }
+      }
+    }
+
+    .hero-image-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: right;
+
+      .hero-image {
+        width: 93%;
+        max-height: 410.62px;
+        border-radius: clamp(50px, 8vw, 100px) 15px 15px 15px;
+        position: absolute;
+        right: 25px;
+        bottom: 30px;
+      }
+      .hero-border {
+        border: solid 2px $light-gray-color;
+        width: 90%;
+        height: clamp(255px, 45vw, 398.25px);
+        border-radius: 15px;
+        margin-top: 40px;
+      }
+    }
+  }
+}
+@media (min-width: 400px) and (max-width: 768px) {
+  .hero-section {
+    .hero-image-container {
+      .hero-border {
+        height: 300px;
+        border-radius: 15px;
+        margin-top: 40px;
+      }
+    }
+  }
+}
