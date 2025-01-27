@@ -1,6 +1,7 @@
 @use "../../styles/index.scss" as *;
 button {
   display: flex;
+
   align-items: center;
   justify-content: center;
   padding: 15px 32px;
@@ -13,8 +14,10 @@ button {
   border: none;
   border-radius: 12px;
   box-shadow: #00000040;
+  transition: all 0.3s ease;
   cursor: pointer;
   &:hover {
-    background-color: $btn-primary-hover;
+    background-color: $text-color;
+    transform: scale(1.1);
   }
 }
