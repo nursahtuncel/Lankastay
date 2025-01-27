@@ -19,14 +19,13 @@ const HeaderImplementationComponent = () => {
                             <a 
                                 href="#" 
                                 key={index} 
-                                style={{animationDelay: `${index * 0.1}s`}}
                                 onClick={() => setActiveLink(link)}
                             >
                                 {link}
                             </a>
                         ))}
                     </div>
-                    <button className="login-btn fade-in" style={{animationDelay: `${links.length * 0.1}s`}}>
+                    <button className="login-btn fade-in">
                         Login
                     </button>           
                         
