@@ -1,15 +1,18 @@
 @use "../../styles/index" as * ;
+
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 1rem 2rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    display: flex;
+    width: 100%; 
+    max-width: 1138px; 
+    justify-content: space-between;
+    align-items: center;
 
     &.scrolled {
         padding: 0.5rem 2rem;
-        background-color: rgba(255, 255, 255, 0.9);
+        background-color: $white-smoke-color;
     }
 }
 
@@ -19,9 +22,10 @@ nav {
     transition: all 0.3s ease;
 
     img {
-        height: 40px;
-        width: auto;
         transition: transform 0.3s ease;
+        width: 139.263px;
+        height: 25.974px;
+        flex-shrink: 0;
     }
 
     &:hover img {
@@ -31,16 +35,26 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    padding: 10px;
+    margin-left: 0; 
+    justify-content: center;
+    align-items: center;
+    gap: 40px; 
 
     a {
         text-decoration: none;
-        font-size: 1rem;
+        font-family: $primary-font;
         transition: all 0.3s ease;
         position: relative;
+        color: $text-color;
+        text-align: right;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
 
         &:hover, &.active {
-            color: #3252DF;
+            color: $primary-color;
             transform: translateY(-2px);
         }
 
@@ -51,7 +65,7 @@ nav {
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: #3252DF;
+            background-color: $primary-color;
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
@@ -63,17 +77,31 @@ nav {
 }
 
 .login-btn {
-    background-color: #3252DF;
-    color: #ffffff;
-    padding: 0.5rem 1.5rem;
+    background-color: $primary-color;
+    color: $white-smoke-color;
     border: none;
-    border-radius: 0.5rem;
-    font-size: 1rem;
+    font-family: $primary-font;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: flex;
+    width: 100%; 
+    max-width: 106px; 
+    height: 41px;
+    padding: 5px 26px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 16.1px -1px rgba(0, 0, 0, 0.25);
+    color: $white-color;
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 
     &:hover {
-        background-color: #2a43b9;
+        background-color: $text-color;
         transform: scale(1.1);
     }
 }
@@ -85,34 +113,4 @@ nav {
 
 .fade-in {
     animation: fadeIn 0.5s ease forwards;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .login-btn {
-        margin-top: 1rem;
-        align-self: flex-start;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-links a {
-        font-size: 0.9rem;
-    }
-
-    .login-btn {
-        font-size: 0.9rem;
-        padding: 0.4rem 1rem;
-    }
 }
