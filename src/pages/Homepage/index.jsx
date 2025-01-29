@@ -1,9 +1,11 @@
-import { Button } from "../../components/Button";
 import "./styles.scss";
+import Hero from "../../components/HeroSection";
+import { Button } from "../../components/Button";
 
 const Homepage = () => {
   return (
     <div className="homepage">
+      <Hero />
       <div className="buttons">
         <Button padding="20px 120px" type="primary">
           Book Now
