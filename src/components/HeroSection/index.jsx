@@ -3,7 +3,7 @@ import img1 from "../../assets/images/heroimg1.png";
 import img2 from "../../assets/images/heroimg2.png";
 import img3 from "../../assets/images/heroimg3.png";
 import img4 from "../../assets/images/heroimg4.png";
-import { Button } from "../../components/Button";
+import { Button } from "../Button";
 const Hero = () => {
   return (
     <div className="hero-section">

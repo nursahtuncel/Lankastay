@@ -1,5 +1,5 @@
-import "./styles.scss";
 import Hero from "../../components/HeroSection";
+import "./styles.scss";
 
 const Homepage = () => {
   return (
