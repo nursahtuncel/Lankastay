@@ -3,7 +3,7 @@ import img1 from "../../assets/images/heroimg1.png";
 import img2 from "../../assets/images/heroimg2.png";
 import img3 from "../../assets/images/heroimg3.png";
 import img4 from "../../assets/images/heroimg4.png";
-
+import { Button } from "../Button";
 const Hero = () => {
   return (
     <div className="hero-section">
@@ -13,7 +13,9 @@ const Hero = () => {
           We provide what you need to enjoy your holiday with family. Time to
           make another memorable moments.
         </p>
-        <button className="hero-button">Show More</button>
+        <Button padding="5px 32px" type="fourth">
+          Show More
+        </Button>
         <div className="hero-stats">
           <div className="hero-stat-item">
             <img className="hero-stat-icon" src={img2} alt="Users Icon" />
