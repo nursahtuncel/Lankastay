@@ -1,24 +1,24 @@
 import "./style.scss";
 
-export const Button = ({ padding, type, children }) => {
+export const Button = ({ padding, type, children, style }) => {
   switch (type) {
     case "primary":
-      type = "primary-button";
+      type = "primary-button"; //bu button'un renk kodu :$main-btn-color
       break;
     case "secondary":
-      type = "secondary-button";
+      type = "secondary-button"; //bu button'un renk kodu:$primary-color
       break;
     case "tertiary":
-      type = "tertiary-button";
+      type = "tertiary-button"; //bu button'un arkaplan rengi yok sadece border'ı var
       break;
     case "fourth":
-      type = "fourth-button";
+      type = "fourth-button"; //bu button'un shadow özelliği var
       break;
     default:
-      type = "default-button";
+      type = "default-button"; // cansel button
   }
   return (
-    <button style={{ padding }} className={type}>
+    <button style={{ padding, ...style }} className={type}>
       {children}
     </button>
   );
