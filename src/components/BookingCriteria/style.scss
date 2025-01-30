@@ -1,0 +1,32 @@
+@use "../../styles/index.scss" as *;
+.BookingStepperContainer {
+  max-width: 898px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 50px auto;
+  border: 1px solid black;
+
+  .steps {
+    width: 270px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: space-between;
+    .step {
+      position: relative;
+      padding: 10px 20px;
+      border-radius: 50%;
+      color: #898989;
+
+      background-color: #e5e5e5;
+
+      line-height: 30px;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+    }
+  }
+}
