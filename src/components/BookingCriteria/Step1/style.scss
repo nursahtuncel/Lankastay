@@ -1,0 +1,129 @@
+@use "../../../styles/index.scss" as *;
+.page1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .page-header {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+
+    .title {
+      font-family: $primary-font;
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 54px;
+      text-align: center;
+      color: #152c5b;
+      margin: 0;
+    }
+    .desc {
+      margin: 0;
+    }
+  }
+  .container {
+    max-width: 898px;
+    display: flex;
+    flex-direction: row;
+    .left {
+      width: 500px;
+      border-right: 1px solid #e5e5e5;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      .image-div {
+        max-width: 420px;
+        height: 270px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .description {
+        max-width: 420px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 16px;
+        .image-desc-left {
+          font-family: $primary-font;
+          color: #152c5b;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 30px;
+          text-align: left;
+        }
+        .image-desc-right {
+          font-family: $primary-font;
+          font-size: 15px;
+          font-weight: 300;
+          line-height: 22.5px;
+
+          color: #b0b0b0;
+        }
+      }
+    }
+
+    .right-container {
+      width: 324px;
+      padding-left: 76px;
+      display: flex;
+      flex-direction: column;
+
+      .days-count-container {
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+        .question {
+          font-family: $primary-font;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 27.2px;
+          text-align: left;
+          color: #152c5b;
+        }
+        .selectTotalDay {
+          width: 320px;
+          background-color: #f5f6f8;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 8px;
+          margin-bottom: 30px;
+          .eksi-btn {
+          }
+          .arti-btn {
+          }
+        }
+      }
+      .calender-container {
+        width: 320px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 30px;
+        background-color: antiquewhite;
+        .date {
+          padding-left: 30px;
+        }
+      }
+      .price {
+        font-family: Poppins;
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 40.8px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+      }
+    }
+  }
+}
