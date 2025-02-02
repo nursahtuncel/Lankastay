@@ -1,0 +1,85 @@
+@use "../../styles/index.scss" as *;
+
+.choiceCardWrapper {
+  width: 365px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.03);
+  }
+  .imgContainer {
+    position: relative;
+    width: 100%;
+  }
+  .locationImage {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.priceTag {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  background-color: $primary-color;
+  color: $white-color;
+  padding: 5px 35px;
+  font-family: $primary-font;
+  font-size: clamp(12px, 2vw, 16px);
+  line-height: clamp(20px, 3vw, 28px);
+  font-weight: 300;
+  border-bottom-left-radius: 15px;
+  .boldFirstWord {
+    font-weight: 500;
+  }
+}
+
+.absoluteStyle {
+  .absoluteInfo {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: $white-color;
+    padding: 10px;
+    font-family: $primary-font;
+
+    h2 {
+      font-size: clamp(12px, 3vw, 20px);
+      line-height: clamp(20px, 3vw, 30px);
+      font-weight: 400;
+    }
+
+    h3 {
+      font-size: clamp(10px, 2vw, 15px);
+      line-height: clamp(12px, 3vw, 22px);
+      font-weight: 300;
+    }
+  }
+}
+
+.flexStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+
+  .flexInfo {
+    font-family: $primary-font;
+    h2 {
+      font-size: clamp(14px, 3vw, 20px);
+      line-height: clamp(20px, 3vw, 30px);
+      font-weight: 400;
+      color: $text-color;
+    }
+
+    h3 {
+      font-size: clamp(12px, 2vw, 16px);
+      line-height: clamp(16px, 3vw, 22px);
+      font-weight: 300;
+      color: $smoke-text-color;
+    }
+  }
+}
