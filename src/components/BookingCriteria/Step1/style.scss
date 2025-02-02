@@ -142,4 +142,12 @@
       }
     }
   }
+  .buttonContainer {
+    width: 323px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: auto;
+    margin-top: 60px;
+  }
 }

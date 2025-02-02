@@ -7,7 +7,7 @@ import Icon from "../../assets/images/icons/completed.svg";
 import { Button } from "../Button";
 
 export default function BookingStepper() {
-  const [currentStep, setCurrentStep] = useState(2);
+  const [currentStep, setCurrentStep] = useState(0);
 
   const steps = ["1", "2", "3"];
   const nextStep = () => {
@@ -21,6 +21,7 @@ export default function BookingStepper() {
       setCurrentStep(currentStep - 1);
     }
   };
+
   return (
     <div className="BookingStepperContainer">
       <div className="steps">
@@ -43,18 +44,20 @@ export default function BookingStepper() {
       <div className="stepsContent">
         {currentStep === 0 && (
           <div>
-            <FirstStep></FirstStep>
+            <FirstStep nextStep={nextStep} prevStep={prevStep}>
+              <Button></Button>
+            </FirstStep>
           </div>
         )}
-
         {currentStep === 1 && (
           <div>
-            <SecondStep></SecondStep>
+            <SecondStep nextStep={nextStep} prevStep={prevStep}>
+              <Button></Button>
+            </SecondStep>
           </div>
         )}
-
         {currentStep === 2 && (
-          <TertiaryStep>
+          <TertiaryStep nextStep={nextStep} prevStep={prevStep}>
             <Button></Button>
           </TertiaryStep>
         )}

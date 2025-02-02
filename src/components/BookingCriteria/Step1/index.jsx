@@ -1,8 +1,8 @@
 import "./style.scss";
 import img5 from "../../../assets/images/blue.svg";
 import calenderIcon from "../../../assets/images/icons/calenderIcon.svg";
-
-const FirstStep = () => {
+import { Button } from "../../Button";
+const FirstStep = ({ nextStep }) => {
   return (
     <div className="page1">
       <div className="page-header">
@@ -45,6 +45,12 @@ const FirstStep = () => {
           <p className="price">You will pay: $400 USD</p>
           <p className="price">per 2 Days</p>
         </div>
+      </div>{" "}
+      <div className="buttonContainer">
+        <Button onClick={nextStep} padding="18px 40px" type="secondary">
+          Book Now
+        </Button>
+        <Button padding="12px 40px">Cansel</Button>
       </div>
     </div>
   );
