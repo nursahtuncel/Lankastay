@@ -1,10 +1,13 @@
 import "./style.scss";
 import { useState } from "react";
 import FirstStep from "./Step1";
+import SecondStep from "./Step2";
+import TertiaryStep from "./Step3";
 import Icon from "../../assets/images/icons/completed.svg";
+import { Button } from "../Button";
 
 export default function BookingStepper() {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(2);
 
   const steps = ["1", "2", "3"];
   const nextStep = () => {
@@ -37,16 +40,24 @@ export default function BookingStepper() {
         ))}
       </div>
 
-      <div>
+      <div className="stepsContent">
         {currentStep === 0 && (
           <div>
             <FirstStep></FirstStep>
           </div>
         )}
 
-        {currentStep === 1 && <div></div>}
+        {currentStep === 1 && (
+          <div>
+            <SecondStep></SecondStep>
+          </div>
+        )}
 
-        {currentStep === 2 && <div></div>}
+        {currentStep === 2 && (
+          <TertiaryStep>
+            <Button></Button>
+          </TertiaryStep>
+        )}
       </div>
     </div>
   );

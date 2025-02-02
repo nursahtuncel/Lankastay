@@ -6,7 +6,6 @@
   flex-direction: column;
   justify-content: center;
   margin: 50px auto;
-  border: 1px solid black;
 
   .steps {
     width: 270px;
@@ -28,5 +27,9 @@
       justify-content: center;
       margin: auto;
     }
+  }
+  .stepsContent {
+    display: flex;
+    justify-content: center;
   }
 }

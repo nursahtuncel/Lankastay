@@ -1,5 +1,6 @@
 import "./style.scss";
 import img5 from "../../../assets/images/blue.svg";
+import calenderIcon from "../../../assets/images/icons/calenderIcon.svg";
 
 const FirstStep = () => {
   return (
@@ -30,10 +31,16 @@ const FirstStep = () => {
             </div>
           </div>
           <div className="calender-container">
+            <p>Pick a Date</p>
             <div>
-              <img className="calender" src="ic_calendar.svg" alt="" />
+              <div className="selectDate">
+                <img src={calenderIcon} alt="Calender" />
+                <input
+                  type="date
+"
+                />
+              </div>
             </div>
-            <div className="date">20january - 22january</div>
           </div>
           <p className="price">You will pay: $400 USD</p>
           <p className="price">per 2 Days</p>
