@@ -7,6 +7,9 @@ import Booking from "./pages/Booking";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
+import { BrowserRouter } from "react-router-dom";
+import Breadcrumb from "./components/Breadcrumb";
+
 function App() {
   return (
     <Router>
@@ -17,7 +20,11 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<NotFoundPage />} />
+        <BrowserRouter>
+        <Breadcrumb currentLocation="Hotel Details" homePath="/" />
+        </BrowserRouter>
       </Routes>
+      
     </Router>
   );
 }

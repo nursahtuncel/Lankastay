@@ -1,0 +1,24 @@
+@use "../../styles/index" as *;
+
+.breadcrumb {
+
+    .breadcrumb-link {
+        color: $smoke-text-color;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        .breadcrumb-link:hover {
+            color: $black-color;
+        }
+    }
+
+    .breadcrumb-separator {
+        color: $smoke-text-color;
+    }
+
+    .breadcrumb-current {
+        color: $text-color;
+        font-weight: bold;
+    }
+
+}
