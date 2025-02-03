@@ -9,22 +9,16 @@ const MostPickedSection = () => {
         <div className={styles.upperSection}>
           <ChoiceCard id={1} />
           <div className={styles.upperLocations}>
-            <ChoiceCard id={2} />
-            <ChoiceCard id={3} />
-            <ChoiceCard id={4} />
-            <ChoiceCard id={5} />
+            {[2, 3, 4, 5].map((id) => (
+              <ChoiceCard key={id} id={id} />
+            ))}
           </div>
         </div>
       </div>
       <div className={styles.lowerSection}>
-        <ChoiceCard id={6} />
-        <ChoiceCard id={7} />
-        <ChoiceCard id={8} />
-        <ChoiceCard id={9} />
-        <ChoiceCard id={10} />
-        <ChoiceCard id={11} />
-        <ChoiceCard id={12} />
-        <ChoiceCard id={13} />
+        {[6, 7, 8, 9, 10, 11, 12, 13].map((id) => (
+          <ChoiceCard key={id} id={id} />
+        ))}
       </div>
     </div>
   );

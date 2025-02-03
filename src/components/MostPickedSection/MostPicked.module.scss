@@ -1,6 +1,8 @@
 @use "../../styles/index.scss" as *;
 
 .mostPickedSectionWrapper {
+  max-width: 1368px;
+  margin: auto;
   padding: 20px 50px;
   .mostPickedHeader {
     padding: 0 0 40px 0;
@@ -13,10 +15,12 @@
     }
     .upperSection {
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
       gap: 20px;
       .upperLocations {
         display: flex;
+        justify-content: center;
         flex-wrap: wrap;
         gap: 20px;
       }
@@ -24,6 +28,7 @@
   }
   .lowerSection {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
     width: 100%;
