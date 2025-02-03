@@ -126,6 +126,9 @@
 
         .selectDate {
           border: 1px solid red;
+          input {
+            padding: 20px;
+          }
         }
         .date {
           padding-left: 30px;
