@@ -38,4 +38,4 @@ jobs:
           COMMIT_HASH: ${{ env.COMMIT_HASH }}
         run: |
           echo "Deploying to production site (commit: $COMMIT_HASH)"
-          netlify deploy --build --prod --dir=./build --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --message "Deploy commit $COMMIT_HASH to production"
+          netlify deploy --build --prod --dir=./dist --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --message "Deploy commit $COMMIT_HASH to production"
