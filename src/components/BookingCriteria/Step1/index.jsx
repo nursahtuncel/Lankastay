@@ -35,17 +35,19 @@ const FirstStep = ({ nextStep }) => {
             <div>
               <div className="selectDate">
                 <img src={calenderIcon} alt="Calender" />
-                <input
-                  type="date
-"
-                />
+                <input type="date" />
               </div>
             </div>
           </div>
-          <p className="price">You will pay: $400 USD</p>
-          <p className="price">per 2 Days</p>
+
+          <p className="price">
+            You will pay:<span>$400 USD</span>
+          </p>
+          <p className="price">
+            per <span>2 Days</span>
+          </p>
         </div>
-      </div>{" "}
+      </div>
       <div className="buttonContainer">
         <Button onClick={nextStep} padding="18px 40px" type="secondary">
           Book Now

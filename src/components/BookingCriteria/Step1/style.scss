@@ -121,24 +121,42 @@
         width: 320px;
         display: flex;
         flex-direction: column;
-        align-items: center;
+
         margin-bottom: 30px;
-        background-color: antiquewhite;
+
         .selectDate {
           border: 1px solid red;
         }
         .date {
           padding-left: 30px;
         }
+        .price {
+          font-family: $primary-font;
+          font-size: 24px;
+          font-weight: 300;
+          line-height: 40.8px;
+          text-align: left;
+          border: 1px solid red;
+        }
       }
-      .price {
-        font-family: Poppins;
+
+      p {
+        display: flex;
+        font-family: $primary-font;
         font-size: 24px;
-        font-weight: 300;
+        font-weight: 400;
         line-height: 40.8px;
         text-align: left;
-        text-underline-position: from-font;
-        text-decoration-skip-ink: none;
+        color: #b0b0b0;
+
+        span {
+          font-family: $primary-font;
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 40.8px;
+          text-align: left;
+          color: $text-color;
+        }
       }
     }
   }
