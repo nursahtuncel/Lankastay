@@ -1,7 +1,6 @@
+/* eslint-disable react/prop-types */
 import "./styles.scss";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types"; 
-
 
 const Breadcrumb = ({ currentLocation, homePath }) => {
     return (
@@ -19,10 +18,7 @@ const Breadcrumb = ({ currentLocation, homePath }) => {
     );
   };
 
-  Breadcrumb.propTypes = {
-    currentLocation: PropTypes.string.isRequired, 
-    homePath: PropTypes.string.isRequired,      
-  };
+
   
   export default Breadcrumb;
 

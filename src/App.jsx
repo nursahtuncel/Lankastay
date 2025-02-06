@@ -6,9 +6,7 @@ import NotFoundPage from "./pages/NotFoundPage/index";
 import Booking from "./pages/Booking";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-
-import { BrowserRouter } from "react-router-dom";
-import Breadcrumb from "./components/Breadcrumb";
+import Details from "./pages/Details";
 
 function App() {
   return (
@@ -19,10 +17,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/details" element={<Details />} />
         <Route path="*" element={<NotFoundPage />} />
-        <BrowserRouter>
-        <Breadcrumb currentLocation="Hotel Details" homePath="/" />
-        </BrowserRouter>
       </Routes>
       
     </Router>
