@@ -1,31 +1,22 @@
 import { useState } from "react";
-import Select from "react-select";
-import DatePicker from "react-datepicker";
-import { FaCalendarAlt, FaUser, FaMapMarkerAlt } from "react-icons/fa";
-import makeAnimated from "react-select/animated";
-import "react-datepicker/dist/react-datepicker.css";
+import { Select, DatePicker, Button } from "antd";
+import { CalendarOutlined, UserOutlined, EnvironmentOutlined } from "@ant-design/icons";
+import "antd/dist/reset.css"; 
 import "../FilterBar/styles.scss";
 
-const animatedComponents = makeAnimated(); 
+const { Option } = Select;
 
 const FilterBar = ({ onSearch }) => {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedPersons, setSelectedPersons] = useState({ value: 2, label: "2 Person" });
+  const [selectedPersons, setSelectedPersons] = useState(2);
   const [selectedCity, setSelectedCity] = useState(null);
 
-  const personOptions = [
-    { value: 1, label: "1 Person" },
-    { value: 2, label: "2 Person" },
-    { value: 3, label: "3 Person" },
-    { value: 4, label: "4 Person" },
-    { value: 5, label: "5 Person" }
-  ];
-
+  const personOptions = [1, 2, 3, 4, 5];
   const cityOptions = [
     "Ampara", "Dehiwala", "Nuwereliya", "Kandy",
     "Ambalangode", "Hikkaduwe", "Colombo",
     "Beruwala", "Galle", "Trincomalee"
-  ].map(city => ({ value: city, label: city }));
+  ];
 
   const handleSearch = () => {
     if (!selectedDate || !selectedPersons || !selectedCity) {
@@ -34,76 +25,70 @@ const FilterBar = ({ onSearch }) => {
     }
 
     const filters = {
-      date: selectedDate.toISOString().split("T")[0],
-      persons: selectedPersons.value,
-      city: selectedCity.value
+      date: selectedDate?.format("YYYY-MM-DD"),
+      persons: selectedPersons,
+      city: selectedCity
     };
 
     console.log("Arama Filtreleri:", filters);
     onSearch(filters);
   };
 
-  const customStyles = {
-    menuList: (provided) => ({
-      ...provided,
-      opacity: 0,
-      animation: "fadeIn 0.3s forwards",
-      transition: "opacity 0.3s ease-in-out"
-    }),
-    control: (provided) => ({
-      ...provided,
-      border: "none",
-      background: "transparent",
-      boxShadow: "none",
-      minHeight: "40px"
-    }),
-    singleValue: (provided) => ({
-      ...provided,
-      color: "#4a4a4a",
-      fontSize: "16px"
-    })
-  };
-
   return (
     <div className="filter-bar">
       <div className="filter-options">
+        {/* Tarih Seçimi */}
         <div className="filter-item">
-          <FaCalendarAlt className="icon" />
+          <CalendarOutlined className="icon" />
           <DatePicker
-            selected={selectedDate}
-            onChange={date => setSelectedDate(date)}
-            placeholderText="Check Available"
+            value={selectedDate}
+            onChange={setSelectedDate}
+            placeholder="Check Available"
+            format="YYYY-MM-DD"
+            style={{ width: "100%" }}
+            suffixIcon={null}  // Varsayılan tarih ikonunu kaldırıyoruz
           />
         </div>
 
+        {/* Kişi Sayısı Seçimi */}
         <div className="filter-item">
-          <FaUser className="icon" />
+          <UserOutlined className="icon" />
           <Select
-            components={animatedComponents}
-            options={personOptions}
             value={selectedPersons}
             onChange={setSelectedPersons}
-            classNamePrefix="react-select"
-            styles={customStyles}
-          />
+            style={{ width: "100%" }}
+            bordered={false} // Border'ı kaldırıyoruz
+          >
+            {personOptions.map((num) => (
+              <Option key={num} value={num}>
+                {num} Person
+              </Option>
+            ))}
+          </Select>
         </div>
 
+        {/* Şehir Seçimi */}
         <div className="filter-item">
-          <FaMapMarkerAlt className="icon" />
+          <EnvironmentOutlined className="icon" />
           <Select
-            components={animatedComponents}
-            options={cityOptions}
             value={selectedCity}
             onChange={setSelectedCity}
             placeholder="Select Location"
-            classNamePrefix="react-select"
-            className="city-select"
-            styles={customStyles}
-          />
+            style={{ width: "100%" }}
+            bordered={false} // Border'ı kaldırıyoruz
+          >
+            {cityOptions.map((city) => (
+              <Option key={city} value={city}>
+                {city}
+              </Option>
+            ))}
+          </Select>
         </div>
       </div>
 
-      <button className="search-button" onClick={handleSearch}>Search</button>
+      <Button type="primary" className="search-button" onClick={handleSearch}>
+        Search
+      </Button>
     </div>
   );
 };
