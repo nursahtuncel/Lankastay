@@ -1,108 +1,99 @@
 @use "../../styles/index" as *;
 
 .booking-component {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    border: 1px solid $light-gray-color;
-    border-radius: 15px;
-    width: 487px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid $light-gray-color;
+  border-radius: 15px;
+  width: 487px;
+  height: auto;
+
+  @media (max-width: 560px) {
+    width: 387px;
     height: auto;
+  }
 
+  @media (max-width: 446px) {
+    width: 287px;
+    height: auto;
+  }
 
-    @media (max-width: 560px) {
-        width: 387px;
-        height: auto;
+  @media (max-width: 345px) {
+    width: 200px;
+    height: auto;
+  }
+
+  .booking-component-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .booking-component-title-h {
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: clamp(24px, 4vw, 30px);
+      font-weight: 500;
+      text-align: center;
+      color: $text-color;
+      padding-top: 28px;
+      padding-bottom: 10px;
+    }
+  }
+
+  .booking-component-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 43px;
+    gap: 5px;
+
+    .booking-component-price-number {
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: clamp(36px, 4vw, 54px);
+      font-weight: 500;
+      text-align: left;
+      color: $light-green-color;
     }
 
-    @media (max-width: 446px) {
-        width: 287px;
-        height: auto;
+    .booking-component-price-text {
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: clamp(36px, 4vw, 54px);
+      font-weight: 300;
+      text-align: left;
+      color: $smoke-text-color;
     }
+  }
 
-    @media (max-width: 345px) {
-        width: 200px;
-        height: auto;
+  .booking-component-button {
+    border: none;
+    margin-bottom: 33px;
+
+    .booking-component-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      width: 323px;
+      height: 50px;
+
+      @media (max-width: 560px) {
+        width: 273px;
+        height: 40px;
+      }
+
+      @media (max-width: 446px) {
+        width: 213px;
+        height: 40px;
+      }
+
+      @media (max-width: 345px) {
+        padding: 4px 8px;
+        width: 123px;
+        height: 35px;
+      }
     }
-
-    .booking-component-title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .booking-component-title-h {
-            font-size: clamp(16px, 2vw, 20px);
-            line-height: clamp(24px, 4vw, 30px);
-            font-weight: 500;
-            text-align: center;
-            color: $text-color;
-            padding-top: 28px;
-            padding-bottom: 10px;
-        }
-    }
-
-    .booking-component-price {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 43px;
-        gap: 5px;
-
-        .booking-component-price-number {
-            font-size: clamp(24px, 3vw, 36px);
-            line-height: clamp(36px, 4vw, 54px);
-            font-weight: 500;
-            text-align: left;
-            color: $light-green-color;
-
-        }
-
-        .booking-component-price-text {
-            font-size: clamp(24px, 3vw, 36px);
-            line-height: clamp(36px, 4vw, 54px);
-            font-weight: 300;
-            text-align: left;
-            color: $smoke-text-color;
-        }
-    }
-
-    .booking-component-button {
-        border: none;
-        margin-bottom: 33px;
-
-        .booking-component-btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: $button-blue-color;
-            border: none;
-            border-radius: 10px;
-            padding: 10px 20px;
-            width: 323px;
-            height: 50px;
-            font-size: 16px;
-            color: $button-text-white-color;
-            cursor: pointer;
-
-
-            @media (max-width: 560px) {
-                font-size: 14px;
-                width: 273px;
-                height: 40px;
-            }
-
-            @media (max-width: 446px) {
-                width: 213px;
-                height: 40px;
-            }
-
-            @media (max-width: 345px) {
-                padding: 4px 8px;
-                width: 123px;
-                height: 35px;
-            }
-        }
-    }
-
+  }
 }
