@@ -1,3 +1,4 @@
+
 import Hero from "../../components/HeroSection";
 import FilterBar from "../../components/HeroSection/FilterBar";
 import "./styles.scss";
