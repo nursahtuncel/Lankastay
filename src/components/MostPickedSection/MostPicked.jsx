@@ -7,8 +7,10 @@ const MostPickedSection = () => {
       <div className={styles.mostPickedHeader}>
         <h1>Most Picked</h1>
         <div className={styles.upperSection}>
-          <ChoiceCard id={1} />
-          <div className={styles.upperLocations}>
+          <div className={styles.upperSectionLeft}>
+            <ChoiceCard id={1} />
+          </div>
+          <div className={styles.upperSectionRight}>
             {[2, 3, 4, 5].map((id) => (
               <ChoiceCard key={id} id={id} />
             ))}
