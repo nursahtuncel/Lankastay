@@ -8,9 +8,16 @@ import { Button } from "../Button";
 
 export default function BookingStepper() {
   const [currentStep, setCurrentStep] = useState(0);
+  const [totalCost, setTotalCost] = useState(0);
+  const [days, setDays] = useState(0);
 
   const steps = ["1", "2", "3"];
-  const nextStep = () => {
+
+  const nextStep = (newTotalCost, newDays) => {
+    if (newTotalCost !== undefined && newDays !== undefined) {
+      setTotalCost(newTotalCost);
+      setDays(newDays);
+    }
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     }
@@ -28,6 +35,7 @@ export default function BookingStepper() {
         {steps.map((step, index) => (
           <div key={index}>
             <div className="step">
+              {" "}
               {index <= currentStep ? (
                 <img
                   style={{ position: "absolute", right: "0", top: "-4px" }}
@@ -35,31 +43,32 @@ export default function BookingStepper() {
                   alt="Users Icon"
                 />
               ) : null}
-              {index + 1}
-            </div>
+              {index + 1}{" "}
+            </div>{" "}
           </div>
         ))}
+        <div className="progressBar"></div>
       </div>
 
       <div className="stepsContent">
         {currentStep === 0 && (
           <div>
-            <FirstStep nextStep={nextStep} prevStep={prevStep}>
-              <Button></Button>
-            </FirstStep>
+            <FirstStep nextStep={nextStep} prevStep={prevStep} />
           </div>
         )}
+
         {currentStep === 1 && (
           <div>
-            <SecondStep nextStep={nextStep} prevStep={prevStep}>
-              <Button></Button>
-            </SecondStep>
+            <SecondStep
+              totalCost={totalCost}
+              days={days}
+              nextStep={nextStep}
+              prevStep={prevStep}
+            />
           </div>
         )}
         {currentStep === 2 && (
-          <TertiaryStep nextStep={nextStep} prevStep={prevStep}>
-            <Button></Button>
-          </TertiaryStep>
+          <TertiaryStep nextStep={nextStep} prevStep={prevStep} />
         )}
       </div>
     </div>

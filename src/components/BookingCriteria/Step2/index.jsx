@@ -1,6 +1,10 @@
 import "./style.scss";
 import { Button } from "../../Button";
-function SecondStep({ nextStep, prevStep }) {
+import { Form, Input, Select, DatePicker } from "antd";
+import { useState } from "react";
+function SecondStep({ nextStep, prevStep, totalCost, days }) {
+  const { Option } = Select;
+
   return (
     <div className="pymentContainer">
       <div className="title">
@@ -10,52 +14,42 @@ function SecondStep({ nextStep, prevStep }) {
       <div className="container">
         <div className="leftContainer">
           <p>Transfer LankaStay:</p>
-          <p>2 Days at Blue Origin Fams, Galle, Sri Lanka</p>
+          <p>{days} Days at Blue Origin Fams, Galle, Sri Lanka</p>
           <p>
-            Total: <span>$400 USD</span>
+            Total: <span>${totalCost} USD</span>
           </p>
           <p>
-            Initial Payment: <span> $200</span>
+            Initial Payment: <span>${totalCost / 2} USD</span>
           </p>
         </div>
+        <Form layout="vertical">
+          <Form.Item label="Bank" name="bank">
+            <Select className="form-item" placeholder="Select Bank">
+              <Option value="bank1">VakıfBank</Option>
+              <Option value="bank2"> Ziraat Bankası</Option>
+              <Option value="bank3">Akbank</Option>
+            </Select>
+          </Form.Item>
 
-        <div className="right-form-container">
-          <div className="form-group">
-            <label htmlFor="bank" className="form-label">
-              Bank
-            </label>
-            <select id="bank" name="bank" className="form-input">
-              <option>Select Bank</option>
-              <option>Select Bank</option>
-              <option>Select Bank</option>
-            </select>
-          </div>
-          <div className="form-group">
-            <label htmlFor="expDate" className="form-label">
-              Exp Date
-            </label>
-            <input
-              type="text"
-              id="expDate"
-              name="expDate"
+          <Form.Item label="Exp Date" name="expDate">
+            <DatePicker
+              className="form-item"
               placeholder="Validation date"
-              className="form-input"
+              picker="date"
             />
-          </div>
+          </Form.Item>
 
-          <div className="form-group">
-            <label htmlFor="cvv" className="form-label">
-              CVV
-            </label>
-            <input
-              type="text"
-              id="cvv"
-              name="cvv"
+          <Form.Item label="CVV" name="cvv">
+            <Input
+              maxLength={4}
+              onInput={(e) => {
+                e.target.value = e.target.value.replace(/[^0-9]/g, "");
+              }}
+              className="form-item"
               placeholder="Beside the card"
-              className="form-input"
             />
-          </div>
-        </div>
+          </Form.Item>
+        </Form>
       </div>
 
       <div className="buttonContainer">
@@ -63,7 +57,7 @@ function SecondStep({ nextStep, prevStep }) {
           Book Now
         </Button>
         <Button onClick={prevStep} padding="12px 40px">
-          Cansel
+          Cancel
         </Button>
       </div>
     </div>
