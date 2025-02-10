@@ -7,6 +7,9 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  @media (max-width: 1248px) {
+    padding: 10px 20px;
+  }
   .mostPickedHeader {
     display: flex;
     flex-direction: column;
@@ -24,11 +27,19 @@
       justify-content: space-between;
       flex-wrap: nowrap;
       gap: 40px;
+      @media (max-width: 1248px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
       .upperSectionRight {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
         flex-grow: 1;
+        @media (max-width: 1248px) {
+          justify-content: center;
+        }
       }
     }
   }

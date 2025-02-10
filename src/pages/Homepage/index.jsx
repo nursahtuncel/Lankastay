@@ -1,4 +1,3 @@
-
 import Hero from "../../components/HeroSection";
 import FilterBar from "../../components/HeroSection/FilterBar";
 import "./styles.scss";
@@ -8,8 +7,8 @@ const Homepage = () => {
   return (
     <div className="homepage">
       <Hero />
-      <MostPickedSection />
       <FilterBar />
+      <MostPickedSection />
     </div>
   );
 };
