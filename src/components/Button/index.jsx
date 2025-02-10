@@ -1,6 +1,13 @@
 import "./style.scss";
 
-export const Button = ({ onClick, padding, type, children, style }) => {
+export const Button = ({
+  onClick,
+  padding,
+  type,
+  children,
+  style,
+  className,
+}) => {
   switch (type) {
     case "primary":
       type = "primary-button"; //bu button'un renk kodu :$main-btn-color
@@ -18,7 +25,10 @@ export const Button = ({ onClick, padding, type, children, style }) => {
       type = "default-button"; // cansel button
   }
   return (
-    <button style={{ padding, ...style }} onClick={onClick} className={type}>
+    <button
+      style={{ padding, ...style }}
+      onClick={onClick}
+      className={`${type} ${className}`}>
       {children}
     </button>
   );
