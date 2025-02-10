@@ -1,0 +1,124 @@
+@use "../../styles/index" as *;
+
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 1px solid $light-gray-color;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  margin-top: 80px;
+
+  .footer-contents {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1043px;
+    margin-top: 61px;
+    margin-bottom: 60px;
+
+    .footer-contents-title {
+      display: flex;
+      flex-direction: column;
+      max-width: 265px;
+      gap: 11px;
+
+      .footer-contents-title-image {
+        width: 140px;
+        height: 26px;
+        margin-bottom: 11px;
+
+        .footer-img {
+          width: 100%;
+        }
+      }
+
+      .footer-text {
+        font-size: clamp(14px, 2vw, 16px);
+        line-height: clamp(22px, 3vw, 24px);
+        font-weight: 300;
+        text-align: left;
+        color: $smoke-text-color;
+        margin: 0;
+      }
+    }
+
+    .footer-contents-visitor {
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
+
+      .footer-visitor-text {
+        font-size: clamp(16px, 2.5vw, 18px);
+        line-height: clamp(24px, 3.5vw, 27px);
+        font-weight: 500;
+        text-align: left;
+        color: $text-color;
+        padding-top: 6px;
+        margin: 0;
+      }
+
+      .footer-register-button {
+        .link-to {
+          text-decoration: none;
+        }
+        .footer-register-button-btn {
+          display: flex;
+          align-items: center;
+          border: none;
+          border-radius: 5px;
+          padding: 10px 25px;
+          width: 142px;
+          height: 32px;
+          font-size: clamp(12px, 2vw, 14px);
+          line-height: clamp(18px, 3vw, 21px);
+          font-weight: 500;
+          color: $white-color;
+        }
+      }
+    }
+  }
+
+  .footer-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-height: 61px;
+    height: 61px;
+    background-color: $primary-color;
+    gap: 5px;
+
+    .footer-info-text {
+      font-size: clamp(12px, 2vw, 14px);
+      line-height: clamp(18px, 3vw, 21px);
+      font-weight: 300;
+      color: $white-smoke-color;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 1072px) {
+    .footer-contents {
+      padding: 0 10px;
+    }
+  }
+
+  @media (max-width: 472px) {
+    .footer-contents {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 340px) {
+    .footer-info {
+      padding: 0 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}
