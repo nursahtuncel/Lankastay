@@ -6,7 +6,6 @@ const Homepage = () => {
   return (
     <div className="homepage">
       <Hero />
-      <Stepper />
     </div>
   );
 };
