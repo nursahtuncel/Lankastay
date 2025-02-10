@@ -19,7 +19,7 @@ function SecondStep({ nextStep, prevStep, totalCost, days }) {
             Total: <span>${totalCost} USD</span>
           </p>
           <p>
-            Initial Payment: <span>${totalCost / 2} USD</span>
+            Initial Payment: <span>${(totalCost / 100) * 30} USD</span>
           </p>
         </div>
         <Form layout="vertical">
