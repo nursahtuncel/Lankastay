@@ -1,3 +1,4 @@
+import Footer from "../../components/Footer";
 import Hero from "../../components/HeroSection";
 import FilterBar from "../../components/HeroSection/FilterBar";
 import "./styles.scss";
@@ -9,6 +10,7 @@ const Homepage = () => {
       <Hero />
       <FilterBar />
       <MostPickedSection />
+      <Footer />
     </div>
   );
 };
