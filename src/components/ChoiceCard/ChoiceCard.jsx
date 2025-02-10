@@ -1,14 +1,12 @@
 import styles from "./ChoiceCard.module.scss";
 import classNames from "classnames";
-import locationImages from "./LocationImages";
 import locationData from "../../constants/LocationData";
 
 const ChoiceCard = ({ id }) => {
   const locationInfo = locationData.find((item) => item.id === id);
   if (!locationInfo) return null;
 
-  const { title, subtitle, location, tag } = locationInfo;
-  const LocationImage = location ? locationImages[location] : null;
+  const { title, subtitle, img, tag } = locationInfo;
 
   const isAbsoluteStyle = id <= 5;
   const isCompactStyle = id > 5;
@@ -34,10 +32,10 @@ const ChoiceCard = ({ id }) => {
       style={{ width: isCompactStyle ? "300px" : "400px" }}
     >
       <div className={styles.imgContainer}>
-        {LocationImage && (
+        {img && (
           <img
             className={styles.locationImage}
-            src={LocationImage}
+            src={img}
             alt={`View of ${title}`}
           />
         )}
