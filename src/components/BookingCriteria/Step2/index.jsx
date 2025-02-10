@@ -1,7 +1,7 @@
 import "./style.scss";
 import { Button } from "../../Button";
 import { Form, Input, Select, DatePicker } from "antd";
-import { useState } from "react";
+
 function SecondStep({ nextStep, prevStep, totalCost, days }) {
   const { Option } = Select;
 

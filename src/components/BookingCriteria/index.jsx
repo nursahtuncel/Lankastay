@@ -4,7 +4,6 @@ import FirstStep from "./Step1";
 import SecondStep from "./Step2";
 import TertiaryStep from "./Step3";
 import Icon from "../../assets/images/icons/completed.svg";
-import { Button } from "../Button";
 
 export default function BookingStepper() {
   const [currentStep, setCurrentStep] = useState(0);
