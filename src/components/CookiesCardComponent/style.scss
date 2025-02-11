@@ -1,0 +1,75 @@
+@use "../../styles/index" as *;
+.cookieCard {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #eaf1ff;
+
+  .inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 20px;
+
+    .textContainer {
+      margin-bottom: 16px;
+      .header {
+        margin-bottom: 10px;
+        font-family: $primary-font;
+        font-size: clamp(12px, 5vw, 18px);
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.658);
+      }
+
+      .description {
+        font-family: $primary-font;
+        font-weight: normal;
+        color: $smoke-text-color;
+        font-size: clamp(12px, 5vw, 16px);
+        line-height: 24px;
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 20px;
+      @media (max-width: 400px) {
+        flex-direction: column;
+      }
+      .ok {
+        display: inline-block;
+        min-width: 164px;
+        padding: 11px 13px;
+        border-radius: 2px;
+        background-color: $primary-color;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        font-family: $primary-font;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 20px;
+        transition: 0.3s;
+        &:hover {
+          background-color: $btn-primary-hover;
+        }
+      }
+
+      .decline {
+        min-width: 164px;
+        text-align: center;
+        padding: 9px 13px;
+        text-decoration: none;
+        border: 2px solid #3a4649;
+        background-color: transparent;
+        color: $primary-color;
+        transition: 0.3s;
+        &:hover {
+          border-color: #838f93;
+          color: $btn-primary-hover;
+        }
+      }
+    }
+  }
+}

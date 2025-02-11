@@ -7,10 +7,11 @@ import Booking from "./pages/Booking";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Details from "./pages/Details";
-
+import CookiesCard from "./components/CookiesCardComponent";
 function App() {
   return (
     <Router>
+      <CookiesCard />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/booking" element={<Booking />} />
@@ -20,7 +21,6 @@ function App() {
         <Route path="/details" element={<Details />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      
     </Router>
   );
 }
