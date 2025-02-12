@@ -1,0 +1,290 @@
+@use "../../styles/index.scss" as *;
+
+html,
+body,
+.ant-table,
+.ant-layout,
+.ant-typography {
+  font-family: $secondary-font !important;
+}
+
+.dashboard-layout {
+  .dashboard-layout-full-height {
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+  }
+  .dashboard-sider {
+    text-align: center;
+    background-color: $white-color;
+    min-height: 1025px;
+    max-width: 254px;
+    .sider-img {
+      margin-top: 40px;
+    }
+  }
+
+  .dashboard-header {
+    height: 51px;
+    background-color: $light-smoke-color;
+    display: flex;
+    margin: 24px;
+    padding: 0px;
+
+    .anticon-down {
+      color: black !important;
+      font-size: 15px !important;
+    }
+    .dashboard-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .header {
+        .greeting-title {
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 30px;
+          color: $dark-black-color;
+          margin: 0;
+        }
+        .greeting-subtitle {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 21px;
+          color: $dark-gray-color;
+          margin: 0;
+        }
+      }
+      .dashboard-user-info {
+        display: flex;
+        align-items: center;
+
+        .dashboard-icon {
+          width: 24px;
+          height: 24px;
+          margin-right: 23px;
+        }
+        .dashboard-img {
+          border-left: 1px $soft-gray-color solid;
+          padding-left: 23px;
+          width: 68px;
+          height: 45px;
+        }
+        .user-profile {
+          display: grid;
+          margin-right: 16px;
+          margin-left: 16px;
+          width: 110px;
+
+          .user-name {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+            color: $dark-black-color;
+            margin: 0;
+          }
+          .user-role {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 18px;
+            color: $dark-black-color;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  .content-content {
+    background-color: $light-smoke-color;
+    margin: 0px 24px 24px 24px;
+
+    .content-title {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32.68px;
+      color: $bright-blue-color;
+    }
+    .content-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .search-container {
+        background-color: $white-color;
+        display: flex;
+        align-items: center;
+        width: 734px;
+        height: 48px;
+        border-radius: 16px;
+
+        .search-icon {
+          margin-left: 20px;
+          margin-right: 16px;
+          width: 16px;
+          height: 16px;
+        }
+        .search-input {
+          border: none;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+          color: $dark-neutral-color;
+        }
+      }
+    }
+    .dashboard-actions {
+      display: flex;
+      align-items: center;
+
+      .add-owner {
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $bright-blue-color;
+        width: 134px;
+        height: 53px;
+        margin-right: 30px;
+
+        .add-owner-text {
+          font-size: 17px;
+          font-weight: 600;
+          line-height: 16px;
+          color: $white-color;
+          margin: 0 8px 0 0;
+        }
+        .add-owner-icon {
+          margin-top: 3px;
+        }
+      }
+      .sort-text {
+        margin: 0;
+      }
+      .sort-icon {
+        margin-left: 14px;
+        margin-right: 30px;
+      }
+      .filter-icon {
+        width: 19px;
+        height: 19px;
+      }
+    }
+    .table {
+      margin: 40px 0 200px 0;
+      .ant-table-cell.column-name::before {
+        display: none !important;
+      }
+      .ant-table-cell.column-role::before,
+      .ant-table-cell.column-date::before {
+        display: none !important;
+      }
+      .column-group {
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 16px;
+        color: $dark-blue-color;
+        text-align: left !important;
+        background-color: $white-color;
+      }
+      .column-name {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 16px;
+        color: $soft-blue-color;
+        background-color: $white-color;
+
+        .name-container {
+          .name {
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 16px;
+            color: $dark-blue-color;
+          }
+          .email {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            color: $soft-blue-color;
+          }
+        }
+      }
+      .column-role {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 16px;
+        color: $soft-blue-color;
+        background-color: $white-color;
+
+        .role-button {
+          border: none;
+          font-size: 13px;
+          font-weight: 600;
+          color: $white-smoke-color;
+          border-radius: 4px;
+          cursor: pointer;
+          text-transform: capitalize;
+          width: 120px;
+          height: 26px;
+
+          &.role-button-blue {
+            background-color: $bright-blue;
+          }
+          &.role-button-gray {
+            color: $soft-blue-color;
+            background-color: $frost-white;
+          }
+        }
+      }
+
+      .column-date {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 16px;
+        color: $soft-blue-color;
+        background-color: $white-color;
+
+        .date {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 15px;
+          color: $dark-blue-color;
+        }
+      }
+      .column-action {
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 16px;
+        color: $soft-blue-color;
+        background-color: $white-color;
+
+        .action-container {
+          display: flex;
+          gap: 20px;
+        }
+        .action-invite,
+        .action-delete {
+          border: none;
+          background-color: $white-color;
+          cursor: pointer;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        .action-delete {
+          color: red;
+
+          &:hover {
+            color: darkred;
+          }
+        }
+      }
+    }
+  }
+}
+.ant-pagination,
+.ant-table-pagination {
+  display: none !important;
+}
