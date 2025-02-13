@@ -1,8 +1,28 @@
+import React, { useState } from "react";
 import "./style.scss";
+import Cookies from "js-cookie";
 
 function CookiesCard() {
+  const [cookiesAccepted, setCookiesAccepted] = useState(() => {
+    return localStorage.getItem("cookiesAccepted") === "true";
+  });
+
+  const handleAcceptCookies = () => {
+    Cookies.set("userAcceptedCookies", "true", { expires: 7 });
+    localStorage.setItem("cookiesAccepted", "true");
+    setCookiesAccepted(true);
+  };
+
+  const handleDeclineCookies = () => {
+    Cookies.remove("userAcceptedCookies");
+    localStorage.setItem("cookiesAccepted", "false");
+    setCookiesAccepted(false);
+  };
+
   return (
-    <div className="cookieCard">
+    <div
+      className="cookieCard"
+      style={{ display: cookiesAccepted ? "none" : "block" }}>
       <div className="inner">
         <div className="textContainer">
           <div className="header">THIS WEBSITE USES COOKIES</div>
@@ -18,12 +38,13 @@ function CookiesCard() {
         </div>
 
         <div className="actions">
-          <a href="#" className="ok">
+          <button onClick={handleAcceptCookies} className="ok">
             OK
-          </a>
-          <a href="#" className="decline">
+          </button>
+
+          <button onClick={handleDeclineCookies} className="decline">
             Decline
-          </a>
+          </button>
         </div>
       </div>
     </div>
