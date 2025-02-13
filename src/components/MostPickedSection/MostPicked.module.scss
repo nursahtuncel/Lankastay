@@ -1,0 +1,53 @@
+@use "../../styles/index.scss" as *;
+
+.mostPickedSectionWrapper {
+  max-width: 1368px;
+  margin: auto;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media (max-width: 1248px) {
+    padding: 10px 20px;
+  }
+  .mostPickedHeader {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 40px 0;
+    gap: 20px;
+    h1 {
+      font-family: $primary-font;
+      font-size: clamp(16px, 3vw, 24px);
+      line-height: clamp(24px, 4vw, 36px);
+      font-weight: 500;
+      color: $text-color;
+    }
+    .upperSection {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      gap: 40px;
+      @media (max-width: 1248px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+      .upperSectionRight {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        flex-grow: 1;
+        @media (max-width: 1248px) {
+          justify-content: center;
+        }
+      }
+    }
+  }
+  .lowerSection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+  }
+}
