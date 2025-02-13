@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import image1 from "../../assets/Logo.svg";
 import Hamburger from "hamburger-react";
 import "./styles.scss";
-import { Button } from "antd";
 
 const HeaderImplementationComponent = () => {
     const links = ["Home", "Hotels", "Rooms", "About", "Contact"];
