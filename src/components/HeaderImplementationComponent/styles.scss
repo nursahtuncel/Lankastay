@@ -114,3 +114,51 @@ nav {
 .fade-in {
     animation: fadeIn 0.5s ease forwards;
 }
+.hamburger-react{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background:$white-color;
+        text-align: center;
+        padding: 20px;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links.open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        display: flex;
+    }
+    .login-btn {
+        display: none;
+    }
+    .login-btn.show {
+        display: flex;
+    }
+
+    .hamburger-react {
+        display: flex;
+        z-index: 10;
+    }
+}
+@media (max-width: 480px) {
+    nav {
+        padding: 0.5rem 1rem;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+        padding: 12px;
+    }
+}
