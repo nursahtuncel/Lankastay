@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./style.scss";
 import Cookies from "js-cookie";
-
+import { Button } from "../Button";
 function CookiesCard() {
   const [cookiesAccepted, setCookiesAccepted] = useState(() => {
     return localStorage.getItem("cookiesAccepted") === "true";
@@ -38,13 +38,19 @@ function CookiesCard() {
         </div>
 
         <div className="actions">
-          <button onClick={handleAcceptCookies} className="ok">
-            OK
-          </button>
+          <Button
+            onClick={handleAcceptCookies}
+            padding="8px 60px"
+            type="primary">
+            ok
+          </Button>
 
-          <button onClick={handleDeclineCookies} className="decline">
-            Decline
-          </button>
+          <Button
+            onClick={handleAcceptCookies}
+            padding="5px 32px"
+            type="tertiary">
+            decline
+          </Button>
         </div>
       </div>
     </div>
