@@ -1,28 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 import Cookies from "js-cookie";
 import { Button } from "../Button";
+
 function CookiesCard() {
-  const [cookiesAccepted, setCookiesAccepted] = useState(() => {
-    return localStorage.getItem("cookiesAccepted") === "true";
-  });
+  const [cookiesAccepted, setCookiesAccepted] = useState(null);
+
+  useEffect(() => {
+    const storedCookiesAccepted = localStorage.getItem("cookiesAccepted");
+    if (storedCookiesAccepted === "true" || storedCookiesAccepted === "false") {
+      setCookiesAccepted(storedCookiesAccepted === "true");
+    }
+  }, []);
 
   const handleAcceptCookies = () => {
-    Cookies.set("userAcceptedCookies", "true", { expires: 7 });
+    Cookies.set("userAcceptedCookies", "true", {
+      expires: 7,
+      path: "/",
+      sameSite: "strict",
+    });
     localStorage.setItem("cookiesAccepted", "true");
     setCookiesAccepted(true);
   };
 
   const handleDeclineCookies = () => {
     Cookies.remove("userAcceptedCookies");
+    Cookies.set("userAcceptedCookies", "false");
     localStorage.setItem("cookiesAccepted", "false");
     setCookiesAccepted(false);
   };
 
+  if (cookiesAccepted !== null) return null;
+
   return (
-    <div
-      className="cookieCard"
-      style={{ display: cookiesAccepted ? "none" : "block" }}>
+    <div className="cookieCard">
       <div className="inner">
         <div className="textContainer">
           <div className="header">THIS WEBSITE USES COOKIES</div>
@@ -46,7 +57,7 @@ function CookiesCard() {
           </Button>
 
           <Button
-            onClick={handleAcceptCookies}
+            onClick={handleDeclineCookies}
             padding="5px 32px"
             type="tertiary">
             decline
