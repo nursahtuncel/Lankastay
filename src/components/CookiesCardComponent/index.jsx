@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
-import Cookies from "js-cookie";
+//import Cookies from "js-cookie";
 import { Button } from "../Button";
 
 function CookiesCard() {

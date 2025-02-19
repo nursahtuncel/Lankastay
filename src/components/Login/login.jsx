@@ -43,7 +43,7 @@ const Login = () => {
         className={styles.loginImageContainer}
         style={{ backgroundImage: `url(${loginImg})` }}
       >
-        <img src={logo} alt="Logo" className={styles.loginLogo} />
+        <img className={styles.loginLogo} src={logo} alt="Logo" />
       </div>
       <div className={styles.loginFormContainer}>
         <h1>Login</h1>

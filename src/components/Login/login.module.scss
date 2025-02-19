@@ -1,1 +1,83 @@
 @use "../../styles/index.scss" as *;
+
+.loginPageWrapper {
+  display: flex;
+  height: 100vh;
+  .loginImageContainer {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .loginLogo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 150px;
+    }
+  }
+  .loginFormContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 400px;
+      .formElement {
+        margin-bottom: 1rem;
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-weight: bold;
+        }
+        input {
+          width: 100%;
+          padding: 0.75rem;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+        }
+      }
+      .loginBtn {
+        padding: 0.75rem;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .redirectToRegister {
+        display: block;
+        text-align: center;
+        margin-top: 1rem;
+        color: #007bff;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.passwordField {
+  .passwordInputWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    .passwordToggle {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+    }
+  }
+}

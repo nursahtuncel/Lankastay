@@ -62,7 +62,7 @@ const Register = () => {
         className={styles.registerImageContainer}
         style={{ backgroundImage: `url(${registerImg})` }}
       >
-        <img src={logo} alt="Logo" className={styles.registerLogo} />
+        <img className={styles.registerLogo} src={logo} alt="Logo" />
       </div>
       <div className={styles.registerFormContainer}>
         <h1>Create Account</h1>
@@ -131,8 +131,8 @@ const Register = () => {
                 placeholder="6+ characters"
               />
               <span
-                onClick={() => setShowPassword(!showPassword)}
                 className={styles.passwordToggle}
+                onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
