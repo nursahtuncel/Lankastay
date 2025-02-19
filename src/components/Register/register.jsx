@@ -62,6 +62,7 @@ const Register = () => {
         className={styles.registerImageContainer}
         style={{ backgroundImage: `url(${registerImg})` }}
       >
+        <div className={styles.imageOverlay}></div>
         <img className={styles.registerLogo} src={logo} alt="Logo" />
       </div>
       <div className={styles.registerFormContainer}>
