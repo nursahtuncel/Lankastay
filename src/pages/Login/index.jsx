@@ -1,7 +1,12 @@
 import "./styles.scss";
+import Login from "../../components/Login/login.jsx";
 
-const Login = () => {
-  return <div className="login-page"></div>;
+const LoginPage = () => {
+  return (
+    <div className="login-page">
+      <Login />
+    </div>
+  );
 };
 
-export default Login;
+export default LoginPage;
