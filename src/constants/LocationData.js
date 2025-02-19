@@ -58,7 +58,6 @@ const locationData = [
     title: "Shangri-La",
     subtitle: "Colombo, Sri Lanka",
     location: "Colombo",
-    tag: "Popular Choice",
     img: Colombo,
   },
   {
@@ -73,6 +72,7 @@ const locationData = [
     title: "Green Villa",
     subtitle: "Kandy, Sri Lanka",
     location: "Kandy2",
+    tag: "Popular Choice",
     img: Kandy2,
   },
   {

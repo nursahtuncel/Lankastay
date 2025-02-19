@@ -64,6 +64,7 @@
     .housing-card-img {
       width: 100%;
       border-radius: 10px;
+      margin-bottom: 10px;
     }
 
     .housing-card-title {
@@ -72,13 +73,14 @@
       line-height: clamp(24px, 4vw, 30px);
       letter-spacing: 0%;
       color: $text-color;
+      margin-bottom: 0;
     }
     .housing-card-subtitle {
       font-weight: 300;
       font-size: clamp(13px, 2vw, 15px);
       line-height: clamp(20px, 3vw, 23px);
-      letter-spacing: 0%;
       color: $smoke-text-color;
+      margin-bottom: 0;
     }
   }
 
