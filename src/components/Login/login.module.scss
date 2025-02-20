@@ -20,8 +20,9 @@
       left: 5%;
       width: 90%;
       height: 90%;
-      background-color: $button-text-white-color;
+      background-color: $white-color;
       border-radius: 10px;
+      opacity: 70%;
     }
     .loginLogo {
       position: absolute;
@@ -36,7 +37,7 @@
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    background-color: $white-color;
+    background-color: $button-text-white-color;
     @media (max-width: 768px) {
       width: 100%;
       padding: 2rem;
