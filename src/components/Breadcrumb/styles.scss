@@ -1,37 +1,33 @@
 @use "../../styles/index" as *;
 
 .breadcrumb {
+  .breadcrumb-link {
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: clamp(30px, 5vw, 47px);
+    font-weight: 300;
+    color: $smoke-text-color;
+    text-align: left;
+    text-decoration: none;
+    transition: color 0.3s ease;
 
-    .breadcrumb-link {
-        font-size: clamp(14px, 2vw, 18px);
-        line-height: clamp(30px, 5vw, 47px);
-        font-weight: 300;
-        color: $smoke-text-color;
-        text-align: left;
-        text-decoration: none;
-        transition: color 0.3s ease;
-
-        .breadcrumb-link:hover {
-            color: $black-color;
-        }
+    .breadcrumb-link:hover {
+      color: $black-color;
     }
+  }
 
-    .breadcrumb-separator {
-        font-size: clamp(14px, 2vw, 18px);
-        line-height: clamp(30px, 5vw, 47px);
-        font-weight: 300;
-        color: $smoke-text-color;
-        text-align: left;
-        
-    }
+  .breadcrumb-separator {
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: clamp(30px, 5vw, 47px);
+    font-weight: 300;
+    color: $smoke-text-color;
+    text-align: left;
+  }
 
-    .breadcrumb-current {
-        font-size: clamp(14px, 2vw, 18px);
-        line-height: clamp(30px, 5vw, 47px);
-        font-weight: 500;
-        color: $text-color;
-        text-align: left;
-        
-    }
-
+  .breadcrumb-current {
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: clamp(30px, 5vw, 47px);
+    font-weight: 500;
+    color: $text-color;
+    text-align: left;
+  }
 }
