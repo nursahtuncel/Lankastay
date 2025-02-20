@@ -1,37 +1,36 @@
 @use "../../styles/index" as *;
 
 .product-photogrid {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  gap: 10px;
+  margin-top: 30px;
+
+  .product-photogrid-mainphoto {
+    .mainphoto-img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  .product-photogrid-rightphotos {
     display: flex;
-    justify-content: center;
-    margin: auto;
+    flex-direction: column;
     gap: 10px;
-    margin-top: 80px;
 
-    .product-photogrid-mainphoto{
-        .mainphoto-img{
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
+    .rightphotos-img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
     }
-    
-    .product-photogrid-rightphotos{
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-
-        .rightphotos-img{
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-    }
+  }
 }
 
 @media (max-width: 527px) {
-    .product-photogrid {
-        flex-wrap: wrap;
-        gap: 3px;
-    }
-    
+  .product-photogrid {
+    flex-wrap: wrap;
+    gap: 3px;
+  }
 }
