@@ -1,6 +1,7 @@
 import styles from "./register.module.scss";
 import registerImg from "../../assets/images/Login&Register/login&register.png";
 import logo from "../../assets/Logo.svg";
+import { Button } from "../Button";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -69,7 +70,7 @@ const Register = () => {
         <h1>Create Account</h1>
         <form onSubmit={handleSubmit}>
           <div className={styles.formElement}>
-            <label>Name:</label>
+            <label>Name</label>
             <input
               type="text"
               name="name"
@@ -79,7 +80,7 @@ const Register = () => {
             />
           </div>
           <div className={styles.formElement}>
-            <label>Email:</label>
+            <label>Email</label>
             <input
               type="email"
               name="email"
@@ -90,7 +91,7 @@ const Register = () => {
             />
           </div>
           <div className={styles.formElement}>
-            <label>Phone No:</label>
+            <label>Phone No</label>
             <input
               type="text"
               name="phone"
@@ -100,7 +101,7 @@ const Register = () => {
             />
           </div>
           <div className={styles.formElement}>
-            <label>Country:</label>
+            <label>Country</label>
             <input
               type="text"
               name="country"
@@ -110,7 +111,7 @@ const Register = () => {
             />
           </div>
           <div className={styles.formElement}>
-            <label>Username:</label>
+            <label>Username</label>
             <input
               type="text"
               name="username"
@@ -121,7 +122,7 @@ const Register = () => {
             />
           </div>
           <div className={`${styles.formElement} ${styles.passwordField}`}>
-            <label>Password:</label>
+            <label>Password</label>
             <div className={styles.passwordInputWrapper}>
               <input
                 type={showPassword ? "text" : "password"}
@@ -135,7 +136,7 @@ const Register = () => {
                 className={styles.passwordToggle}
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                {showPassword ? <FaEye /> : <FaEyeSlash />}
               </span>
             </div>
           </div>
@@ -151,9 +152,13 @@ const Register = () => {
               zoho.
             </label>
           </div>
-          <button className={styles.registerBtn} type="submit">
+          <Button
+            type="primary"
+            onClick={handleSubmit}
+            className={styles.registerBtn}
+          >
             Register
-          </button>
+          </Button>
           <a className={styles.redirectToLogin} href="/login">
             Login
           </a>

@@ -1,8 +1,10 @@
 import styles from "./login.module.scss";
 import loginImg from "../../assets/images/Login&Register/login&register.png";
 import logo from "../../assets/Logo.svg";
+import { Button } from "../Button";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -16,14 +18,11 @@ const Login = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
     e.preventDefault();
     const storedUser = JSON.parse(localStorage.getItem("user"));
-
-    if (!formData.username || !formData.password) {
-      alert("Username and Password are required!");
-      return;
-    }
 
     if (
       !storedUser ||
@@ -34,7 +33,13 @@ const Login = () => {
       return;
     }
 
+    if (!formData.username || !formData.password) {
+      alert("Username and Password are required!");
+      return;
+    }
+
     alert("Login successful!");
+    navigate("/");
   };
 
   return (
@@ -47,10 +52,10 @@ const Login = () => {
         <img className={styles.loginLogo} src={logo} alt="Logo" />
       </div>
       <div className={styles.loginFormContainer}>
-        <h1>Login</h1>
-        <form onSubmit={handleSubmit}>
+        <h1>Login Account</h1>
+        <form onSubmit={handleLogin}>
           <div className={styles.formElement}>
-            <label>Username:</label>
+            <label>Username</label>
             <input
               type="text"
               name="username"
@@ -60,7 +65,7 @@ const Login = () => {
             />
           </div>
           <div className={`${styles.formElement} ${styles.passwordField}`}>
-            <label>Password:</label>
+            <label>Password</label>
             <div className={styles.passwordInputWrapper}>
               <input
                 type={showPassword ? "text" : "password"}
@@ -73,13 +78,17 @@ const Login = () => {
                 onClick={() => setShowPassword(!showPassword)}
                 className={styles.passwordToggle}
               >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                {showPassword ? <FaEye /> : <FaEyeSlash />}
               </span>
             </div>
           </div>
-          <button className={styles.loginBtn} type="submit">
+          <Button
+            type="primary"
+            onClick={handleLogin}
+            className={styles.loginBtn}
+          >
             Login
-          </button>
+          </Button>
           <a className={styles.redirectToRegister} href="/register">
             Create an Account
           </a>
