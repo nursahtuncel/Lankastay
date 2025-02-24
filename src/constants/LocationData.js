@@ -20,6 +20,12 @@ const locationData = [
     location: "Galle",
     tag: "$50 per night",
     img: Galle,
+
+    date: "20 Jan - 22 Jan",
+    day: "02 Days",
+    address: "Galle to Colombo Road 245, Main Street, Galle.",
+    initial: "Initial Payment $200",
+    total: "Total Payment $400",
   },
   {
     id: 2,
@@ -28,6 +34,12 @@ const locationData = [
     location: "Trincomalee",
     tag: "$22 per night",
     img: Trincomalee,
+
+    date: "18 Feb - 21 Feb",
+    day: "03 Days",
+    address: "Beach Road, Trincomalee, Sri Lanka.",
+    initial: "Initial Payment $100",
+    total: "Total Payment $300",
   },
   {
     id: 3,
@@ -36,6 +48,12 @@ const locationData = [
     location: "Dehiwala",
     tag: "$856 per night",
     img: Dehiwala,
+
+    date: "10 Mar - 12 Mar",
+    day: "02 Days",
+    address: "No. 55, Main Street, Dehiwala, Sri Lanka.",
+    initial: "Initial Payment $400",
+    total: "Total Payment $800",
   },
   {
     id: 4,
@@ -58,7 +76,6 @@ const locationData = [
     title: "Shangri-La",
     subtitle: "Colombo, Sri Lanka",
     location: "Colombo",
-    tag: "Popular Choice",
     img: Colombo,
   },
   {
@@ -73,6 +90,7 @@ const locationData = [
     title: "Green Villa",
     subtitle: "Kandy, Sri Lanka",
     location: "Kandy2",
+    tag: "Popular Choice",
     img: Kandy2,
   },
   {

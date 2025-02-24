@@ -8,12 +8,19 @@ import AmenitiesSection from "../../components/AmenitiesSection";
 import MainPhoto from "../../assets/images/DetailsPage/product-photo.png";
 import PhotoUp from "../../assets/images/DetailsPage/product-photo-up.png";
 import PhotoDown from "../../assets/images/DetailsPage/product-photo-down.png";
+import SimilarHousingOptions from "../../components/SimilarHousingOptions";
+import Footer from "../../components/Footer";
+import HeaderImplementationComponent from "../../components/HeaderImplementationComponent";
 
 const ImageGallery = [MainPhoto, PhotoUp, PhotoDown];
 
 const Details = () => {
   return (
     <section className="details-page">
+      <div className="lankastay-navbar">
+        <HeaderImplementationComponent />
+      </div>
+
       <div className="details-page-header">
         <div className="details-page-pagetitleimplementation">
           <PageTitleImplementation
@@ -54,8 +61,14 @@ const Details = () => {
         </div>
       </div>
 
-      <div>
+      <div className="amenities-section">
         <AmenitiesSection />
+      </div>
+      <div className="similar-housing-options">
+        <SimilarHousingOptions />
+      </div>
+      <div>
+        <Footer />
       </div>
     </section>
   );

@@ -3,11 +3,18 @@
 .details-page {
   padding: 10px;
 
+  .lankastay-navbar {
+    display: flex;
+    max-width: 1138px;
+    margin: auto;
+  }
+
   .details-page-header {
     display: flex;
     flex-direction: column;
-    max-width: 1200px;
+    max-width: 1140px;
     margin: auto;
+    margin-top: 80px;
     gap: 20px;
   }
 
