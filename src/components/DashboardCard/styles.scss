@@ -1,0 +1,140 @@
+@use "../../styles/index.scss" as *;
+
+.dashboard {
+  margin: 24px;
+  height: calc(96vh - 99px);
+  background-color: $white-color;
+  border: 1px solid $frost-white;
+  border-radius: 8px;
+  padding: 20px;
+
+  &-title {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21.79px;
+    color: $charcoal-blue;
+  }
+
+  &-subtitle {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16.34px;
+    color: $soft-blue-color;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $pale-azure;
+    margin-bottom: 15px;
+  }
+
+  &-card-container {
+    display: flex;
+    gap: 20px;
+
+    font-family: $primary-font;
+
+    .dashboard-card {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      border: solid 2px $dusty-gray;
+      border-radius: 10px;
+      padding: 11px;
+      width: 302px;
+      height: 583px;
+      position: relative;
+
+      .image-container {
+        .dashboard-card-image {
+          width: 276px;
+          height: 330.7px;
+          border-radius: 15px;
+        }
+
+        .image-text {
+          position: absolute;
+          top: 11px;
+          right: 12px;
+          border: none;
+          border-radius: 0 15px;
+          color: $white-color;
+          background-color: $primary-color;
+          width: 133.63px;
+          height: 28.73px;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 23.8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .dashboard-card-title {
+        position: absolute;
+        top: 292px;
+        left: 25px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 30px;
+        color: $white-color;
+      }
+
+      .dashboard-card-subtitle {
+        position: absolute;
+        top: 315px;
+        left: 25px;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 22.5px;
+        color: $white-color;
+      }
+
+      .card-details {
+        display: grid;
+        gap: 9px;
+        padding-top: 20px;
+
+        .card-header {
+          display: flex;
+          justify-content: space-between;
+
+          .date {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 27.2px;
+            color: $text-color;
+            margin-bottom: 0px;
+            display: flex;
+            align-items: center;
+          }
+          .icon {
+            display: flex;
+            gap: 10px;
+
+            .edit-icon {
+              border-radius: 4px;
+              border: 1px solid $light-silver;
+              padding: 10px;
+            }
+
+            .delete-icon {
+              border: 1px solid $light-silver;
+              padding: 10px 12px;
+              border-radius: 4px;
+            }
+          }
+        }
+
+        .day,
+        .address,
+        .initial,
+        .total {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 27.2px;
+          color: $text-color;
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}

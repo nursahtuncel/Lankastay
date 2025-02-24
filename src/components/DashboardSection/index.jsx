@@ -8,6 +8,7 @@ import lanka from "../../assets/images/Dashboard/dashboardLankaStay.png";
 import bell from "../../assets/images/Dashboard/dashboard-bell.png";
 import profile from "../../assets/images/Dashboard/dashboard-profile.png";
 import AdminDashboard from "../AdminDashboard";
+import DashboardCard from "../DashboardCard";
 
 const items = [
   {
@@ -58,7 +59,7 @@ const DashboardSection = () => (
             </div>
           </div>
         </Header>
-        <AdminDashboard />
+        <DashboardCard />
       </Layout>
     </Layout>
   </Flex>
