@@ -60,6 +60,7 @@ const DashboardSection = () => (
           </div>
         </Header>
         <DashboardCard />
+        <AdminDashboard />
       </Layout>
     </Layout>
   </Flex>
