@@ -1,0 +1,170 @@
+@use "../../styles/index.scss" as *;
+
+.registerPageWrapper {
+  display: flex;
+  height: 100vh;
+  .registerImageContainer {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    @media (max-width: 768px) {
+      display: none;
+    }
+    .imageOverlay {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      background-color: $white-color;
+      border-radius: 10px;
+      opacity: 70%;
+    }
+    .registerLogo {
+      position: absolute;
+      z-index: 2;
+      width: 400px;
+      height: auto;
+      @media (max-width: 1268px) {
+        width: 350px;
+      }
+      @media (max-width: 1200px) {
+        width: 300px;
+      }
+    }
+  }
+  .registerFormContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: $button-text-white-color;
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 20px;
+    }
+    h1 {
+      font-family: $primary-font;
+      font-size: clamp(32px, 6vw, 40px);
+      line-height: clamp(48px, 8vw, 60px);
+      font-weight: 500;
+      color: $black-color;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 400px;
+      gap: 10px;
+      @media (max-width: 768px) {
+        gap: 6px;
+      }
+      .formElement {
+        label {
+          font-family: $primary-font;
+          font-size: clamp(18px, 3vw, 24px);
+          line-height: clamp(28px, 4vw, 36px);
+          font-weight: 400;
+          color: $black-color;
+        }
+        input {
+          width: 100%;
+          padding: 0.75rem;
+          border: 1px solid $btn-border-color;
+          border-radius: 5px;
+          transition: all 0.2s ease-in-out;
+          &::placeholder {
+            font-family: $primary-font;
+            font-size: clamp(8px, 2vw, 14px);
+            line-height: clamp(16px, 3vw, 24px);
+            font-weight: 400;
+            color: $btn-border-color;
+          }
+          &:focus {
+            padding: 16px;
+            border-color: $black-color;
+            outline: none;
+          }
+        }
+      }
+      .termsContainer {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 1rem 0;
+        input[type="checkbox"] {
+          width: 20px;
+          height: 20px;
+          transform: scale(1.2);
+          cursor: pointer;
+        }
+        label {
+          font-family: $primary-font;
+          font-size: clamp(10px, 3vw, 13px);
+          line-height: clamp(14px, 3vw, 20px);
+          font-weight: 400;
+          color: $black-color;
+          a {
+            text-decoration: none;
+            &:hover {
+              color: $main-btn-color-hover;
+            }
+          }
+        }
+      }
+      .registerBtn {
+        font-family: $primary-font;
+        font-size: clamp(14px, 3vw, 20px);
+        line-height: clamp(20px, 4vw, 32px);
+        font-weight: 500;
+        color: $button-text-white-color;
+        background-color: $button-blue-color;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 5px;
+        &:hover {
+          background-color: $main-btn-color-hover;
+          color: $white-color;
+        }
+      }
+      .redirectToLogin {
+        font-family: $primary-font;
+        font-size: clamp(16px, 3vw, 22px);
+        line-height: clamp(26px, 4vw, 34px);
+        font-weight: 400;
+        color: $black-color;
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+          color: $main-btn-color-hover;
+        }
+      }
+    }
+  }
+}
+
+.passwordField {
+  .passwordInputWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    .passwordToggle {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+      color: $btn-border-color;
+      transition: color 0.2s ease;
+      &:hover {
+        color: $black-color;
+      }
+    }
+  }
+}

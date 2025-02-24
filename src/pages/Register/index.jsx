@@ -1,7 +1,12 @@
 import "./styles.scss";
+import Register from "../../components/Register/register.jsx";
 
-const Register = () => {
-  return <div className="register-page"></div>;
+const RegisterPage = () => {
+  return (
+    <div className="register-page">
+      <Register />
+    </div>
+  );
 };
 
-export default Register;
+export default RegisterPage;
