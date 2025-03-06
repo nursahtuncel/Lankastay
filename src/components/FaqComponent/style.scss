@@ -1,0 +1,22 @@
+.faq-container {
+  max-width: 1441px;
+  width: 100%;
+  margin: 20px auto;
+
+  .ant-collapse {
+    .ant-collapse-item {
+    }
+
+    .ant-collapse-header {
+      &:hover {
+      }
+      .faq-title {
+      }
+    }
+
+    .ant-collapse-content {
+      .faq-content {
+      }
+    }
+  }
+}

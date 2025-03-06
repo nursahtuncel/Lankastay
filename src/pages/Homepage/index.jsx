@@ -4,14 +4,15 @@ import Hero from "../../components/HeroSection";
 import FilterBar from "../../components/HeroSection/FilterBar";
 import "./styles.scss";
 import MostPickedSection from "../../components/MostPickedSection/MostPicked";
-
+import FAQs from "../../components/FaqComponent";
 const Homepage = () => {
   return (
-  <div className="homepage">
-    <HeaderImplementationComponent />
+    <div className="homepage">
+      <HeaderImplementationComponent />
       <Hero />
       <FilterBar />
       <MostPickedSection />
+      <FAQs />
       <Footer />
     </div>
   );
