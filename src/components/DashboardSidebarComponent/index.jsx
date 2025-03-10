@@ -39,8 +39,7 @@ const DashboardSidebarComponent = () => {
           <NavLink
             key={index}
             to={item.path}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
+            className={({ isActive }) => (isActive ? "active" : "")}>
             <img
               src={`/src/assets/[JA-35]/${item.icon}`}
               alt={`${item.label} icon`}
@@ -54,3 +53,4 @@ const DashboardSidebarComponent = () => {
 };
 
 export default DashboardSidebarComponent;
+

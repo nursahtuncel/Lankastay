@@ -10,7 +10,7 @@ import Details from "./pages/Details";
 import CookiesCard from "./components/CookiesCardComponent";
 import { SWRConfig } from "swr";
 import AdminDashboard from "./components/AdminDashboard"; 
-import BookingComponent from "./components/BookingComponent"
+
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
           <Route path="/register" element={<Register />} />
 
           <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="objectives" element={<BookingComponent />} />
+            <Route path="objectives" element={<Booking />} />
             <Route path="booking" element={<Booking />} />
             <Route path="refunds" element={<Booking />} />
             <Route path="messages" element={<Booking />} />
