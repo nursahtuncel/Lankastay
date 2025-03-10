@@ -83,18 +83,9 @@ const DashboardSettings = () => {
             onChange={handleFileChange}
           >
             {fileList.length >= 8 ? null : (
-              <div
-                className="upload-image-container"
-                style={{ textAlign: "center" }}
-              >
-                <div
-                  style={{
-                    marginBottom: 8,
-                  }}
-                >
-                  Upload your photo
-                </div>
-                <img src={add} alt="add" className="upload-image" />
+              <div className="upload-button">
+                <div className="upload-text">Upload your photo</div>
+                <img src={add} alt="add" className="upload-img" />
               </div>
             )}
           </Upload>

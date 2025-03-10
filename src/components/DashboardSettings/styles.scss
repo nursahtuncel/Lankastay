@@ -50,6 +50,7 @@
         border-radius: 10px;
 
         .upload-button {
+          font-family: $primary-font;
           border: 0;
           background: none;
           display: flex;
@@ -81,6 +82,7 @@
         margin: 0;
 
         label {
+          font-family: $secondary-font;
           font-weight: 600;
           font-size: 14px;
           line-height: 100%;
@@ -88,6 +90,7 @@
         }
 
         .ant-input {
+          font-family: $secondary-font;
           font-weight: 400;
           font-size: 12px;
           line-height: 112.00000000000001%;
@@ -118,6 +121,7 @@
 
       .form-buttons {
         .submit-button {
+          font-family: $primary-font;
           font-weight: 500;
           font-size: 14px;
           line-height: 100%;
@@ -131,6 +135,7 @@
         }
 
         .reset-button {
+          font-family: $primary-font;
           font-weight: 500;
           font-size: 14px;
           line-height: 100%;
