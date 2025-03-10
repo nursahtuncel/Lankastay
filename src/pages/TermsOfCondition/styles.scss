@@ -1,0 +1,33 @@
+@use "../../styles/index" as *;
+
+.terms-of-condition {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+
+  .terms-of-condition-header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .terms-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    color: $black-color;
+    padding: 50px 0px 10px 400px;
+    font-size: clamp(14px, 5vw, 16px);
+    line-height: clamp(20px, 5vw, 32px);
+
+    ul {
+      list-style-position: inside;
+      margin-left: 1.5em;
+      padding-left: 0;
+      margin-bottom: 1em;
+    }
+    li {
+      margin-bottom: 0.5em;
+    }
+  }
+}

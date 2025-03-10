@@ -8,6 +8,9 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Details from "./pages/Details";
 import CookiesCard from "./components/CookiesCardComponent";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfCondition from "./pages/TermsOfCondition";
+
 function App() {
   return (
     <Router>
@@ -20,6 +23,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/details" element={<Details />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-condition" element={<TermsOfCondition />} />
       </Routes>
     </Router>
   );

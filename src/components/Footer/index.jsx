@@ -18,6 +18,12 @@ const Footer = () => {
             We kaboom your beauty holiday instantly and memorable.
           </p>
         </div>
+
+        <div className="footer-links">
+          <div><Link className="footer-links-privacy" to="/privacy-policy">Privacy Policy</Link></div>
+          <div><Link className="footer-links-terms" to="/terms-of-condition">Terms of Condition</Link></div>
+        </div>
+
         <div className="footer-contents-visitor">
           <p className="footer-visitor-text">Become hotel Owner</p>
           <div className="footer-register-button">
