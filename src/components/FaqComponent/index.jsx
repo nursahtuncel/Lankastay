@@ -45,6 +45,7 @@ const items = [
 const FAQs = () => {
   return (
     <div className="faq-container">
+      <h3 className="title">FAQ</h3>{" "}
       <Collapse items={items} defaultActiveKey={["1"]} ghost />
     </div>
   );

@@ -1,21 +1,82 @@
+@use "../../styles/index" as *;
+
 .faq-container {
-  max-width: 1441px;
+  max-width: 1440px;
   width: 100%;
-  margin: 20px auto;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .title {
+    font-family: $primary-font;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    padding-bottom: 20px;
+    color: $text-color;
+    margin: 0;
+  }
   .ant-collapse {
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
     .ant-collapse-item {
-    }
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 130px;
+      height: max-content;
+      border: 1px solid #e5e5e5;
+      border-radius: 15px;
+      padding: 20px;
 
-    .ant-collapse-header {
-      &:hover {
+      .ant-collapse-header {
+        font-family: $primary-font;
+        color: $text-color;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0px;
+        transition: background 0.3s ease;
+        padding: 0;
+
+        .ant-collapse-expand-icon {
+          order: 1;
+          transition: transform 0.3s ease;
+          background-color: $primary-color;
+          margin: 10px;
+          border-radius: 50%;
+          justify-content: center;
+          padding: 20px 10px;
+          svg {
+            color: white;
+            font-size: 20px;
+          }
+          @media screen and (max-width: 500px) {
+            display: none;
+          }
+        }
       }
-      .faq-title {
+
+      &.ant-collapse-item-active
+        .ant-collapse-header
+        .ant-collapse-expand-icon {
+        transform: rotate(180deg);
       }
     }
 
     .ant-collapse-content {
-      .faq-content {
+      .ant-collapse-content-box {
+        font-family: $primary-font;
+        color: $smoke-text-color;
+        padding: 0;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 26px;
+        letter-spacing: 0%;
       }
     }
   }
