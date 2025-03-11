@@ -49,13 +49,20 @@ body {
 }
 
 .nav a.active {
+
   color: $primary-color;
+
 }
 
 .nav img {
+
   width: 1.5rem;
   height: 1.5rem;
   margin-right: 0.5rem;
+  color: gray;
+  .nav a img.active-icon {
+    color: #007bff;  // Aktif ikona border ekleme
+  }
 }
 
 .nav-spacer {

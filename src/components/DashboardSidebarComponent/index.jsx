@@ -4,25 +4,25 @@ import { NavLink } from "react-router-dom";
 const menuItems = [
   {
     path: "/dashboard/admin",
-    icon: "mdi_apple-keyboard-command.svg",
+    icon: "resim1.svg",
     label: "Dashboard",
   },
-  { path: "/dashboard/objectives", icon: "mdi_poll.svg", label: "Objectives" },
-  { path: "/dashboard/booking", icon: "document-text.svg", label: "Bookings" },
+  { path: "/dashboard/objectives", icon: "resim3.svg", label: "Objectives" },
+  { path: "/dashboard/booking", icon: "resim3.svg", label: "Bookings" },
   {
     path: "/dashboard/refunds",
-    icon: "mdi_hand-coin-outline.svg",
+    icon: "resim4.svg",
     label: "Refunds",
   },
-  { path: "/dashboard/messages", icon: "document-text.svg", label: "Message" },
+  { path: "/dashboard/messages", icon: "resim5.svg", label: "Message" },
   {
     path: "/dashboard/help",
-    icon: "mdi_help-circle-outline.svg",
+    icon: "resim6.svg",
     label: "Help",
   },
   {
     path: "/dashboard/settings",
-    icon: "mdi_cog-outline.svg",
+    icon: "resim7.svg",
     label: "Settings",
   },
 ];
@@ -31,7 +31,7 @@ const DashboardSidebarComponent = () => {
   return (
     <div className="sidebar">
       <div className="logo">
-        <img src="/src/assets/[JA-35]/LankaStay..svg" alt="LankaStay logo" />
+        <img src="../src/assets/images/Dashboard/Logo.svg" alt="LankaStay logo" />
       </div>
 
       <nav className="nav">
@@ -41,7 +41,7 @@ const DashboardSidebarComponent = () => {
             to={item.path}
             className={({ isActive }) => (isActive ? "active" : "")}>
             <img
-              src={`/src/assets/[JA-35]/${item.icon}`}
+              src={`../src/assets/images/sidebar/${item.icon}`}
               alt={`${item.label} icon`}
             />
             <span>{item.label}</span>
