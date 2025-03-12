@@ -49,11 +49,17 @@ body {
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 0.5px;
-}
 
-.nav a:hover {
-  color: $primary-color;
-  transform: scale(1.05);
+  &:hover {
+    color: $primary-color;
+    transform: scale(1.05);
+
+    img {
+      filter: brightness(0) saturate(100%) invert(42%) sepia(99%) saturate(335%)
+        hue-rotate(179deg) brightness(90%) contrast(89%);
+      transform: scale(1.1); // İkon hafif büyüsün
+    }
+  }
 }
 
 .nav a.active {
