@@ -72,7 +72,12 @@ function FAQs({ category }) {
       }
     ]
   };
-
+  const categoryTitles = {
+    generalQuestions: "General Questions",
+    payment: "Payment & Pricing",
+    cancellation: "Cancellation & Refunds"
+  };
+  const selectedTitle = categoryTitles[category] ;
   const selectedCategory = questions[category] || [];
   const [activeKey, setActiveKey] = useState(selectedCategory[0]?.key || "");
   const activeAnswer = selectedCategory.find((item) => item.key === activeKey)?.cevap;
@@ -81,7 +86,7 @@ function FAQs({ category }) {
     <Row gutter={16} className="FAQContainer">
       
       <div className="categoryTitle">
- {/* buraya Kategori başlıkları gelecek */}
+{selectedTitle}
       </div>
 
       {/* Left:questions */}
