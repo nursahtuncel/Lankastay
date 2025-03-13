@@ -1,12 +1,11 @@
 @use "../../../styles/index" as *;
 
-.FAQContainer{
-    max-width: 1085px;
-    width: 100%;
-    border: 1px solid $pale-azure;
-    margin-top: 15px;
-    margin-bottom: 15px;
-  .categoryTitle{
+.FAQContainer {
+  width: 100%;
+  border: 1px solid $pale-azure;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  .categoryTitle {
     width: 100%;
     font-family: $secondary-font;
     font-weight: 600;
@@ -17,7 +16,7 @@
     padding-bottom: 15px;
     padding-left: 20px;
   }
-  .answer{
+  .answer {
     font-family: $primary-font;
     font-weight: 400;
     font-size: 14px;
