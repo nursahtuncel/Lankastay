@@ -1,0 +1,72 @@
+@use "../../styles/index.scss" as *;
+
+body {
+  margin: 0;
+}
+
+.sidebar {
+  height: 100%;
+  border-right: 1px solid $white-color;
+  padding: 1.5rem;
+  background-color: $white-color;
+}
+
+.logo {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 193.07px;
+  height: 35.112px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav img {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.5rem;
+  color: gray;
+}
+
+.nav-spacer {
+  height: 1.5rem;
+}
+.nav a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: $grey-color;
+  font-family: $primary-font;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    color: $primary-color;
+    transform: scale(1.05);
+
+    img {
+      filter: brightness(0) saturate(100%) invert(42%) sepia(99%) saturate(335%)
+        hue-rotate(179deg) brightness(90%) contrast(89%);
+      transform: scale(1.1); // İkon hafif büyüsün
+    }
+  }
+}
+
+.nav a.active {
+  color: $primary-color;
+}
+
+.nav a.active img {
+  filter: brightness(0) saturate(100%) invert(42%) sepia(99%) saturate(335%)
+    hue-rotate(179deg) brightness(90%) contrast(89%);
+}
