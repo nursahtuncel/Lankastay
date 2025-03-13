@@ -9,7 +9,9 @@ function Help() {
         <p>What are you looking for?</p>
       </div>
       <hr style={{ border: "1px solid #EDF2F6" }} />
-     <FAQs/>
+     <FAQs category="generalQuestions"/>
+     <FAQs category="payment"/>
+     <FAQs category="cancellation"/>
 
     </div>
   );
