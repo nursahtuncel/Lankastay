@@ -11,12 +11,12 @@
   }
 
   .terms-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
+    display: block;
+    margin: auto;
+    max-width: 1138px;
+    width: 100%;
     color: $black-color;
-    padding: 50px 0px 10px 400px;
+    padding: 50px 50px 0 50px;
     font-size: clamp(14px, 5vw, 16px);
     line-height: clamp(20px, 5vw, 32px);
 

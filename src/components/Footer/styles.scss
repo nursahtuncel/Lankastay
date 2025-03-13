@@ -15,9 +15,10 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 1043px;
+    max-width: 1138px;
     margin-top: 61px;
     margin-bottom: 60px;
+    padding: 0 10px;
 
     .footer-contents-title {
       display: flex;
@@ -48,20 +49,12 @@
 
     .footer-links {
       display: flex;
-      flex-direction: column;
       min-width: 120px;
       flex-wrap: wrap;
-      gap: 5px;
+      gap: 90px;
       margin: 0;
 
-      .footer-links-privacy {
-        font-size: clamp(12px, 2vw, 14px);
-        line-height: clamp(22px, 3vw, 24px);
-        color: $text-color;
-        text-decoration: none;
-      }
-
-      .footer-links-terms {
+      .footer-links-styles {
         font-size: clamp(12px, 2vw, 14px);
         line-height: clamp(22px, 3vw, 24px);
         color: $text-color;
@@ -125,27 +118,33 @@
     }
   }
 
-  @media (max-width: 1072px) {
-    .footer-contents {
-      padding: 0 10px;
-    }
-  }
-  @media (max-width: 620px) {
+  @media (max-width: 960px) {
     .footer-contents {
       flex-wrap: wrap;
+      gap: 110px;
       justify-content: center;
-      gap: 20px;
+    }
+  }
+  @media (max-width: 680px) {
+    .footer-contents {
+      flex-wrap: wrap;
+      gap: 80px;
+      justify-content: flex-start;
     }
   }
 
-  @media (max-width: 472px) {
+  @media (max-width: 534px) {
+    .footer-contents {
+      gap: 50px;
+    }
   }
 
-  @media (max-width: 340px) {
+  @media (max-width: 290px) {
+    .footer-contents {
+      min-width: 300px;
+    }
     .footer-info {
-      padding: 0 10px;
-      flex-wrap: wrap;
-      justify-content: center;
+      min-width: 300px;
     }
   }
 }

@@ -20,8 +20,41 @@ const Footer = () => {
         </div>
 
         <div className="footer-links">
-          <div><Link className="footer-links-privacy" to="/privacy-policy">Privacy Policy</Link></div>
-          <div><Link className="footer-links-terms" to="/terms-of-condition">Terms of Condition</Link></div>
+          <div className="footer-links-left">
+            <div>
+              <Link className="footer-links-styles" to="/details">
+                Details
+              </Link>
+            </div>
+            <div>
+              <Link className="footer-links-styles" to="/privacy-policy">
+                Privacy Policy
+              </Link>
+            </div>
+            <div>
+              <Link className="footer-links-styles" to="/terms-of-condition">
+                Terms of Condition
+              </Link>
+            </div>
+          </div>
+
+          <div className="footer-links-right">
+            <div>
+              <Link className="footer-links-styles" to="/booking">
+                Booking
+              </Link>
+            </div>
+            <div>
+              <Link className="footer-links-styles" to="/register">
+                Register
+              </Link>
+            </div>
+            <div>
+              <Link className="footer-links-styles" to="/dashboard">
+                Dashboard
+              </Link>
+            </div>
+          </div>
         </div>
 
         <div className="footer-contents-visitor">
