@@ -1,6 +1,8 @@
 @use "../../styles/index.scss" as *;
 
 .content-content {
+  width: 80%;
+  margin: auto;
   background-color: $light-smoke-color;
   padding: 0px 24px 0px 24px;
   height: calc(100vh - 99px);
@@ -24,9 +26,9 @@
       height: 48px;
       border-radius: 16px;
 
-      .search-icon {
+      .search-Icon {
         margin-left: 20px;
-        margin-right: 16px;
+        margin-right: 10px;
         width: 16px;
         height: 16px;
       }
@@ -36,6 +38,7 @@
         font-weight: 400;
         line-height: 24px;
         color: $dark-neutral-color;
+        padding: 10px 10px;
       }
     }
   }

@@ -1,6 +1,6 @@
 import styles from "./login.module.scss";
 import loginImg from "../../assets/images/Login&Register/login&register.png";
-import logo from "../../assets/Logo.svg";
+import logo from "../../assets/images/Dashboard/Logo.svg";
 import { Button } from "../Button";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
