@@ -8,6 +8,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Details from "./pages/Details";
 import CookiesCard from "./components/CookiesCardComponent";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfCondition from "./pages/TermsOfCondition";
 import { SWRConfig } from "swr";
 import AdminDashboard from "./components/AdminDashboard";
 import HelpCenterComponent from "./components/HelpCenterComponent";
