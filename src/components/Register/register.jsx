@@ -4,6 +4,8 @@ import logo from "../../assets/images/Dashboard/Logo.svg";
 import { Button } from "../Button";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import ModalComponent from "../ModalComponent"; 
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +19,8 @@ const Register = () => {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false); 
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -54,7 +58,8 @@ const Register = () => {
     }
 
     localStorage.setItem("user", JSON.stringify(formData));
-    alert("Registration successful!");
+
+    setIsModalVisible(true); 
   };
 
   return (
@@ -118,7 +123,7 @@ const Register = () => {
               value={formData.username}
               onChange={handleChange}
               required
-              placeholder="Chose a username"
+              placeholder="Choose a username"
             />
           </div>
           <div className={`${styles.formElement} ${styles.passwordField}`}>
@@ -164,6 +169,14 @@ const Register = () => {
           </a>
         </form>
       </div>
+
+      {isModalVisible && (
+        <ModalComponent
+          modalMessage="Kayıt Başarılı!"
+          buttonName="Devam Et"
+          onClose={() => navigate("/login")}
+        />
+      )}
     </div>
   );
 };
