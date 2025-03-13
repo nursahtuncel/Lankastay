@@ -7,10 +7,11 @@ import MostPickedSection from "../../components/MostPickedSection/MostPicked";
 
 const Homepage = () => {
   return (
-  <div className="homepage">
-    <HeaderImplementationComponent />
+    <div className="homepage">
+      <HeaderImplementationComponent />
       <Hero />
       <FilterBar />
+
       <MostPickedSection />
       <Footer />
     </div>

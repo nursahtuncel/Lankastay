@@ -9,8 +9,8 @@ import Register from "./pages/Register";
 import Details from "./pages/Details";
 import CookiesCard from "./components/CookiesCardComponent";
 import { SWRConfig } from "swr";
-import AdminDashboard from "./components/AdminDashboard"; 
-
+import AdminDashboard from "./components/AdminDashboard";
+import HelpCenterComponent from "./components/HelpCenterComponent";
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
             <Route path="booking" element={<Booking />} />
             <Route path="refunds" element={<Booking />} />
             <Route path="messages" element={<Booking />} />
-            <Route path="help" element={<Booking />} />
+            <Route path="help" element={<HelpCenterComponent />} />
             <Route path="settings" element={<Booking />} />
             <Route path="admin" element={<AdminDashboard />} />
           </Route>
