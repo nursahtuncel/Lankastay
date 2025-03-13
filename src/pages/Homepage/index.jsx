@@ -11,6 +11,7 @@ const Homepage = () => {
       <HeaderImplementationComponent />
       <Hero />
       <FilterBar />
+
       <MostPickedSection />
       <FAQs />
       <Footer />
