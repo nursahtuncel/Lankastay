@@ -1,31 +1,19 @@
 import "./styles.scss";
 import { useState } from "react";
-import { message, Upload, Form, Input, Button, Space } from "antd";
+import { message, Upload, Form, Input, Button, Space, Modal } from "antd";
 import add from "../../assets/images/Dashboard/gallery-add.png";
 import axios from "axios";
-import { Image } from "antd";
-
-const getBase64 = (file) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-  });
 
 const DashboardSettings = () => {
-  const [previewOpen, setPreviewOpen] = useState(false);
-  const [previewImage, setPreviewImage] = useState("");
   const [fileList, setFileList] = useState([]);
-  const [imageUrl] = useState();
   const [form] = Form.useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [previewImage, setPreviewImage] = useState(null);
+  const [previewOpen, setPreviewOpen] = useState(false);
 
-  const handlePreview = async (file) => {
-    if (!file.url && !file.preview) {
-      file.preview = await getBase64(file.originFileObj);
-    }
-    setPreviewImage(file.url || file.preview);
+  const handlePreview = (file) => {
+    let src = file.url || URL.createObjectURL(file.originFileObj);
+    setPreviewImage(src);
     setPreviewOpen(true);
   };
 
@@ -35,10 +23,9 @@ const DashboardSettings = () => {
   const onFinish = async (values) => {
     setIsSubmitting(true);
 
-    const { name, email, username, phone, bio } = values;
+    const { name, email, username, phone, bio, imageUrl } = values;
 
     try {
-      const avatarUrl = imageUrl;
       const response = await axios.post(
         "https://jsonplaceholder.typicode.com/users",
         {
@@ -47,22 +34,32 @@ const DashboardSettings = () => {
           username,
           phone,
           bio,
-          avatar: avatarUrl,
+          imageUrl,
         }
       );
-      console.log(response);
-      if (response.status === 200) {
+
+      if (response.status === 200 || response.status === 201) {
         message.success("Profile updated successfully!");
       } else {
         message.error("Failed to update profile.");
       }
     } catch (error) {
       console.error("Error updating profile:", error);
-      message.error("An error occurred while updating your profile.");
+
+      if (error.response) {
+        message.error(
+          `Server Error: ${error.response.data.message || "Unknown error"}`
+        );
+      } else if (error.request) {
+        message.error("No response received from server.");
+      } else {
+        message.error(`Error: ${error.message}`);
+      }
     } finally {
       setIsSubmitting(false);
     }
   };
+
   const onReset = () => {
     form.resetFields();
   };
@@ -73,37 +70,6 @@ const DashboardSettings = () => {
         <h1 className="help-title">Help</h1>
         <h2 className="help-subtitle">What are you looking for?</h2>
 
-        <div className="profile-picture-section">
-          <h1 className="profile-picture-title">Your Profile Picture</h1>
-          <Upload
-            action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
-            listType="picture-card"
-            fileList={fileList}
-            onPreview={handlePreview}
-            onChange={handleFileChange}
-          >
-            {fileList.length >= 8 ? null : (
-              <div className="upload-button">
-                <div className="upload-text">Upload your photo</div>
-                <img src={add} alt="add" className="upload-img" />
-              </div>
-            )}
-          </Upload>
-          {previewImage && (
-            <Image
-              wrapperStyle={{
-                display: "none",
-              }}
-              preview={{
-                visible: previewOpen,
-                onVisibleChange: (visible) => setPreviewOpen(visible),
-                afterOpenChange: (visible) => !visible && setPreviewImage(""),
-              }}
-              src={previewImage}
-            />
-          )}
-        </div>
-
         <Form
           form={form}
           name="control-hooks"
@@ -111,6 +77,36 @@ const DashboardSettings = () => {
           className="user-info-section"
           layout="vertical"
         >
+          <Form.Item
+            name="imageUrl"
+            label="Your Profile Picture"
+            style={{ width: "100%" }}
+            className="imageUrl"
+          >
+            <Upload
+              action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+              listType="picture-card"
+              fileList={fileList}
+              onPreview={handlePreview}
+              onChange={handleFileChange}
+            >
+              {fileList.length >= 8 ? null : (
+                <div className="upload-button">
+                  <div className="upload-text">Upload your photo</div>
+                  <img src={add} alt="add" className="upload-img" />
+                </div>
+              )}
+            </Upload>
+          </Form.Item>
+
+          <Modal
+            open={previewOpen}
+            footer={null}
+            onCancel={() => setPreviewOpen(false)}
+          >
+            <img alt="Preview" style={{ width: "100%" }} src={previewImage} />
+          </Modal>
+
           <Form.Item name="name" label="Name" className="form-item">
             <Input
               placeholder="Please enter your name"
@@ -138,10 +134,11 @@ const DashboardSettings = () => {
             <Input
               placeholder="Please enter your phone number"
               className="form-input"
+              type="number"
             />
           </Form.Item>
           <Form.Item name="bio" label="Bio" className="form-item">
-            <Input
+            <Input.TextArea
               placeholder="Write your Bio here e.g your hobbies, interests ETC"
               className="form-input-bio"
             />
