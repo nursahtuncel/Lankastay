@@ -62,6 +62,7 @@ const DashboardSettings = () => {
 
   const onReset = () => {
     form.resetFields();
+    setFileList([]);
   };
 
   return (

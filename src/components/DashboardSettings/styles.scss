@@ -95,7 +95,7 @@
           background-color: $pale-ash-color;
           border-radius: 10px;
           border: none;
-          width: 519px;
+          width: clamp(300px, 33vw, 519px);
           height: 52px;
           padding-left: 14px;
         }
@@ -110,7 +110,7 @@
           border: none;
           display: flex;
           align-items: flex-start;
-          width: 1087px;
+          width: clamp(800px, 70vw, 1087px);
           height: 158px;
           padding-left: 14px;
           padding: 20px 14px;
