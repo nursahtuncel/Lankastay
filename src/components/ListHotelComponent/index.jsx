@@ -5,94 +5,94 @@ import { List, Button, Input, Image, Modal, Form } from "antd";
 const generateData = () => [
     {
         id: 1,
-        name: "Burj Al Arab",
+        name: "Blue Origin Fams",
         date: "June 15, 2023",
-        description: "Iconic sail-shaped luxury hotel known for its ultra-luxurious suites, private beach, and helicopter pad.",
-        image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/457389536.jpg?k=1b5b93930a67d2372178da9df3c090ec47fb1f5622f5664dde18c4362f31b355&o="
+        description: "Wooden bungalows built on the water offer a peaceful stay surrounded by nature.",
+        image: "https://www.magiclub.com/magiclub/visuals/sri_lanka_sigiriya_hotel_vil_uyana_2.jpg"
     },
     {
         id: 2,
-        name: "The Plaza",
+        name: "Ocean Land",
         date: "June 18, 2023",
-        description: "A historic 5-star hotel near Central Park, famous for its opulent interiors and celebrity guests.",
-        image: "https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_267,q_40,w_400/hotelier-images/e9/38/0fec3170b7a2b7edda5ff2b5825abbd5fb697bbbea4b8c981ae3fffdc8b4.jpeg"
+        description: "A luxury resort offering a tropical holiday atmosphere with its wooden design and sun loungers by the pool.",
+        image: "https://yourexecutivecompass.com.au/wp-content/uploads/2019/11/edvin-johansson-rlwE8f8anOc-unsplash-768x509.jpg"
     },
     {
         id: 3,
-        name: "Marina Bay Sands",
+        name: "Stark House",
         date: "June 20, 2023",
-        description: "Recognized for its rooftop infinity pool, this hotel offers breathtaking city skyline views.",
-        image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/611676302.jpg?k=f7da568223801ba901ea5ded323f55346bcb1484a6e8dd9202ee63ebe1197990&o="
+        description: "An open-air restaurant offering a luxurious and inviting atmosphere with its modern architecture and stylish lighting.",
+        image: "https://assets.architecturaldigest.in/photos/600838cb7a5614cb87e4a055/1:1/w_320,c_limit/Geoffrey-Bawa-Sri-Lanka-travel-guide-1366x768.jpg"
     },
     {
         id: 4,
-        name: "Ritz Paris",
+        name: "Vinna Vill",
         date: "June 22, 2023",
-        description: "A legendary luxury hotel that has hosted famous figures like Coco Chanel and Ernest Hemingway.",
-        image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/20/22/6a/prestige-suite-windsor.jpg?w=900&h=500&s=1"
+        description: "This hotel offers comfortable accommodations and unique views, providing a peaceful getaway in the middle of nature.",
+        image: "https://lmd.lk/wp-content/uploads/2022/12/4.png"
     },
     {
         id: 5,
-        name: "Taj Lake Palace ",
+        name: "Bobox",
         date: "June 25, 2023",
-        description: "A stunning white-marble hotel floating on Lake Pichola, offering a romantic and royal experience.",
-        image: "https://www.historyhit.com/app/uploads/bis-images/5165600/taj-lake-palace-udaipur-788x537.jpg"
+        description: "This charming mountain lodge offers its guests a peaceful experience with its magnificent view and relaxing atmosphere.",
+        image: "https://www.namesnack.com/images/house-sitting-business-names-6010x4012-20200728.jpeg?crop=2:1,smart&width=730"
     },
     {
         id: 6,
-        name: "Four Seasons Bora Bora ",
+        name: "Shangri-La",
         date: "June 28, 2023",
-        description: "Famous for its overwater bungalows and stunning turquoise lagoon, a paradise for honeymooners.",
-        image: "https://cdn.iris-etourism.io/uploads/tahiti_tourisme/b10/4-173-15904004.webp"
+        description: "A modern hotel with an infinity pool overlooking the city.",
+        image: "https://mandarina-colombo-hotel.bookeder.com/data/Photos/450x450/9153/915364/915364879.JPEG"
     },
     {
         id: 7,
-        name: "The Ritz-Carlton",
+        name: "Top View",
         date: "July 1, 2023",
-        description: "Occupying the top floors of a skyscraper, this hotel provides incredible views of Mount Fuji.",
-        image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/02/c6/07/grande-lakes-elegance.jpg?w=900&h=500&s=1"
+        description: "It is a paradise that offers a comfortable holiday experience with its sea view, sunbathing areas and stylish pool.",
+        image: "https://fosterandreed.com/wp-content/uploads/2022/12/Foster-Reed-Shangri-La-Colombo-02.jpg"
     },
     {
         id: 8,
-        name: "Bellagio",
+        name: "Green Villa",
         date: "July 3, 2023",
-        description: "Known for its spectacular fountain show, luxurious casino, and world-class entertainment.",
-        image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/4f/e3/77/bellagio.jpg?w=900&h=500&s=1"
+        description: "This charming hotel offers a peaceful accommodation experience with its lush garden and natural beauty.",
+        image: "https://landscapegeelong.com/wp-content/uploads/2022/07/newly-landscaped-home-Geelong-waterfront.jpg"
     },
     {
         id: 9,
-        name: "The Peninsula Hong Kong",
+        name: "Wodden Pit",
         date: "July 5, 2023",
-        description: "A symbol of elegance and heritage, featuring Rolls-Royce transfers and stunning harbor views.",
-        image: "https://upload.wikimedia.org/wikipedia/commons/e/e1/The_Peninsula_Hong_Kong_%28full_view%29.jpg"
+        description: "It is a holiday resort surrounded by nature, offering a peaceful holiday to its guests with its stylish architecture and luxurious pool.",
+        image: "https://www.crescentrating.com/images/blog/HWVmS6Qj9fB6SmOAAefx0aUj3Y7epYtz.jpg"
     },
     {
         id: 10,
-        name: "Aman Venice",
+        name: "Boutiqe",
         date: "July 8, 2023",
-        description: "A former Venetian palace turned luxury hotel, located on the Grand Canal with a romantic atmosphere.",
-        image: "https://www.aman.com/sites/default/files/2023-05/aman-venice-exterior.jpg"
+        description: "The unique hotel with its mountain view offers an accommodation experience intertwined with nature with its modern architecture.",
+        image: "https://cz.lakpura.com/cdn/shop/files/LK150098A4-01-E.jpg?v=1690957977"
     },
     {
         id: 11,
-        name: "Necker Island",
+        name: "Modern House",
         date: "July 10, 2023",
-        description: "A private island resort owned by Richard Branson, offering an exclusive tropical getaway.",
-        image: "https://media.cntraveler.com/photos/65cc003f81cef2a4b71b47a2/16:9/w_1920,c_limit/Necker%20Island__MG_3402_Elders_Temple.jpg"
+        description: "This hotel room, with its modern and stylish design, is ideal for hosting guests by offering a pleasant atmosphere.",
+        image: "https://i0.wp.com/blog.clikalia.com/wp-content/uploads/2019/01/61150_vender-o-alquilar.jpg?resize=860%2C573&ssl=1"
     },
     {
         id: 12,
-        name: "Icehotel",
+        name: "Silver Rain",
         date: "July 12, 2023",
-        description: "Completely rebuilt every winter using ice and snow, offering a truly unique Arctic stay.",
-        image: "https://img.oastatic.com/img2/43759288/max/variant.jpg?revbust=c110f1c3"
+        description: "This modern hotel offers guests a unique experience, offering a tropical paradise with ocean views and an infinity pool.",
+        image: "https://img1.wsimg.com/isteam/ip/bc20b664-7714-495b-88f1-fe415d417b39/beach%20house%2011.jpg/:/cr=t:0%25,l:5.62%25,w:88.77%25,h:100%25/rs=w:365,h:274,cg:true"
     },
     {
         id: 13,
-        name: "Giraffe Manor",
+        name: "Cashville",
         date: "July 15, 2023",
-        description: "A boutique hotel where guests can share breakfast with friendly, roaming giraffes.",
-        image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/61/75/47/aerial-view-of-giraffe.jpg?w=1000&h=-1&s=1"
+        description: "Featuring a modern and stylish design, this hotel room offers a comfortable seating area and a fully equipped kitchen option.",
+        image: "https://img.netty.immo/esteves/assets/783bb55f1641570220@1280x853.webp"
     }
 ];
 
@@ -100,9 +100,14 @@ const ListHotelComponent = () => {
     const [data, setData] = useState(generateData());
     const [visibleData, setVisibleData] = useState(data.slice(0, 2));
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [
-        editingItem, setEditingItem] = useState(null);
+    const [isAddModalVisible, setIsAddModalVisible] = useState(false);
+    const [editingItem, setEditingItem] = useState(null);
     const [form] = Form.useForm();
+    const [addForm] = Form.useForm();
+
+    const [filterByName, setFilterByName] = useState("");
+    const [filterByDate, setFilterByDate] = useState("");
+
 
     const onLoadMore = () => {
         const newVisibleData = data.slice(0, visibleData.length + 2);
@@ -132,6 +137,29 @@ const ListHotelComponent = () => {
         setData(newData);
         setVisibleData(newData.slice(0, visibleData.length));
     };
+    const handleAdd = () => {
+        addForm.validateFields().then(values => {
+            const newItem = {
+                id: data.length + 1,
+                ...values
+            };
+            const newData = [...data, newItem];
+            setData(newData);
+            setVisibleData(newData.slice(0, visibleData.length + 1));
+            setIsAddModalVisible(false);
+            addForm.resetFields();
+        });
+    };
+
+    const handleFilter = () => {
+        const filteredData = data.filter(item => {
+            const matchesName = filterByName ? item.name.toLowerCase().includes(filterByName.toLowerCase()) : true;
+            const matchesDate = filterByDate ? item.date.includes(filterByDate) : true;
+            return matchesName && matchesDate;
+        });
+        setVisibleData(filteredData);
+    };
+
 
     const loadMore = visibleData.length < data.length && (
         <div style={{ textAlign: 'center', marginTop: 12, height: 32, lineHeight: '32px' }}>
@@ -143,6 +171,28 @@ const ListHotelComponent = () => {
         <div className="hotel-list">
             <h1 style={{fontSize: '24px', marginBottom: '4px'}}>List of Hotel Rooms</h1>
             <p style={{color: '#9ca3af', marginBottom: '20px'}}>Diverse selection of rooms for every need</p>
+            <div className="add-hotel-button">
+                    <Button type="primary" onClick={() => setIsAddModalVisible(true)}>
+                        <i className="fas fa-plus"></i> Add New Hotel
+                    </Button>
+                </div>
+                <div className="filter-buttons">
+                    <Input 
+                        placeholder="Filter by Name" 
+                        style={{ marginRight: 8, width: 200 }} 
+                        value={filterByName} 
+                        onChange={(e) => setFilterByName(e.target.value)} 
+                    />
+                    <Input 
+                        placeholder="Filter by Date" 
+                        style={{ marginRight: 8, width: 200 }} 
+                        value={filterByDate} 
+                        onChange={(e) => setFilterByDate(e.target.value)} 
+                    />
+                    <Button type="primary" onClick={handleFilter}>
+                        <i className="fas fa-filter"></i> Filter
+                    </Button>
+                </div>
             <List
                 itemLayout="horizontal"
                 loadMore={loadMore}
@@ -164,6 +214,7 @@ const ListHotelComponent = () => {
                             src={item.image}
                             alt={item.name}
                             className="room-image"
+                            preview={false}
                         />
                         <List.Item.Meta
                             title={item.name}
@@ -201,6 +252,27 @@ const ListHotelComponent = () => {
                     </Form.Item>
                 </Form>
             </Modal>
+            <Modal
+                    title="Add New Hotel Room"
+                    visible={isAddModalVisible}
+                    onOk={handleAdd}
+                    onCancel={() => setIsAddModalVisible(false)}
+                >
+                    <Form form={addForm} layout="vertical">
+                        <Form.Item name="name" label="Name" rules={[{ required: true }]}>
+                            <Input />
+                        </Form.Item>
+                        <Form.Item name="date" label="Date" rules={[{ required: true }]}>
+                            <Input />
+                        </Form.Item>
+                        <Form.Item name="description" label="Description" rules={[{ required: true }]}>
+                            <Input.TextArea />
+                        </Form.Item>
+                        <Form.Item name="image" label="Image URL" rules={[{ required: true }]}>
+                            <Input />
+                        </Form.Item>
+                    </Form>
+                </Modal>
         </div>
     );
 };
