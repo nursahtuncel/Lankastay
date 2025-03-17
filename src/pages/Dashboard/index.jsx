@@ -3,8 +3,8 @@ import { Outlet, Link } from "react-router-dom";
 import DashboardSidebarComponent from "../../components/DashboardSidebarComponent";
 import { DownOutlined } from "@ant-design/icons";
 import { Dropdown, Space, Layout } from "antd";
-import bell from "../../assets/images/Dashboard/dashboard-bell.png";
 import profile from "../../assets/images/Dashboard/dashboard-profile.png";
+import Notification from "../../components/Notification";
 const { Header, Sider, Content } = Layout;
 // import DashboardFilterComponent from "../../components/DashboardFilterComponent";
 
@@ -41,7 +41,7 @@ const Dashboard = () => {
                   <h2 className="greeting-subtitle">Have a nice day</h2>
                 </div>
                 <div className="dashboard-user-info">
-                  <img className="dashboard-icon" src={bell} alt="img" />
+                  <Notification />
                   <img className="dashboard-img" src={profile} alt="img" />
                   <div className="user-profile">
                     <p className="user-name">Wejaya Raaj</p>

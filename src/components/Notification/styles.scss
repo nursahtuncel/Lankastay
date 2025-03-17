@@ -1,0 +1,65 @@
+@use "../../styles/index.scss" as *;
+
+.notification-sec {
+  padding-right: 25px;
+  padding-top: 25px;
+
+  .bell-button {
+    border: none;
+    background-color: $light-smoke-color;
+    box-shadow: none;
+    width: 25px;
+  }
+}
+.custom-notification-message {
+  font-size: 12px;
+  font-weight: 400;
+
+  &::before {
+    content: "•";
+    color: $bright-blue-color;
+    font-size: 20px;
+    line-height: 120%;
+    margin-right: 10px;
+  }
+}
+.ant-notification {
+  position: relative;
+
+  .ant-notification-notice {
+    position: absolute;
+    top: -1030px;
+    right: 225px;
+    padding: 10px 10px 10px 15px !important  ;
+    border-radius: 10px;
+    width: 243px !important;
+    max-height: 400px !important;
+    background-color: $white-color;
+    border: solid $dusty-gray 2px;
+    overflow-y: auto !important;
+
+    &::-webkit-scrollbar {
+      width: 2px;
+    }
+    &::-webkit-scrollbar-track {
+      margin: 5px 0;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $dusty-gray;
+      border-radius: 10px;
+    }
+    .ant-notification-notice-message {
+      font-size: 12px;
+      font-weight: 600;
+      color: $text-color;
+    }
+    .ant-notification-notice-description {
+      max-width: 243px;
+    }
+  }
+  .ant-notification-notice-close {
+    font-size: 12px;
+    top: 10px !important;
+    right: 10px !important;
+  }
+}
