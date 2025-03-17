@@ -1,0 +1,159 @@
+@use "../../styles/index.scss" as *;
+
+.setting-container {
+  background-color: $light-smoke-color;
+  padding: 24px;
+  height: calc(100vh - 99px);
+  max-width: 1400px;
+
+  .profile-container {
+    border-radius: 8px;
+    background-color: $white-color;
+    padding: 16px 20px;
+
+    .help-title {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 100%;
+      color: $charcoal-blue;
+    }
+
+    .help-subtitle {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 100%;
+      color: $soft-gray-color;
+      padding-bottom: 15px;
+      border-bottom: 1px solid $pale-azure;
+      margin-bottom: 15px;
+    }
+
+    .imageUrl .ant-form-item-label > label {
+      font-family: $secondary-font;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 100%;
+      color: $charcoal-blue;
+      margin-bottom: 10px;
+    }
+
+    .user-info-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+
+      .imageUrl {
+        margin: 0;
+
+        .ant-upload-select {
+          width: 130px;
+          height: 130px;
+          border: 2px dashed $slate-gray;
+          border-radius: 10px;
+
+          .upload-button {
+            font-family: $primary-font;
+            border: 0;
+            background: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .upload-text {
+            width: 94px;
+            font-weight: 400;
+            font-size: 12px;
+            color: $dark-gray-color;
+            padding-bottom: 10px;
+          }
+
+          .upload-img {
+            width: 36px;
+            height: 36px;
+          }
+        }
+      }
+
+      .form-item {
+        margin: 0;
+
+        label {
+          font-family: $secondary-font;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 100%;
+          color: $charcoal-blue;
+        }
+
+        .ant-input {
+          font-family: $secondary-font;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 112.00000000000001%;
+          color: $dark-gray-color;
+          background-color: $pale-ash-color;
+          border-radius: 10px;
+          border: none;
+          width: clamp(300px, 33vw, 519px);
+          height: 52px;
+          padding-left: 14px;
+        }
+
+        .form-input-bio {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 112.00000000000001%;
+          color: $dark-gray-color;
+          background-color: $pale-ash-color;
+          border-radius: 10px;
+          border: none;
+          display: flex;
+          align-items: flex-start;
+          width: clamp(800px, 70vw, 1087px);
+          height: 158px;
+          padding-left: 14px;
+          padding: 20px 14px;
+        }
+      }
+
+      .form-buttons {
+        .submit-button {
+          font-family: $primary-font;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 100%;
+          color: $white-color;
+          background-color: $bright-blue-color;
+          border: none;
+          box-shadow: none;
+          border-radius: 10px;
+          width: 160px;
+          height: 40px;
+        }
+
+        .reset-button {
+          font-family: $primary-font;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 100%;
+          color: $slate-gray;
+          border: none;
+          box-shadow: none;
+          background-color: $white-color;
+          width: 120px;
+          height: 40px;
+        }
+      }
+    }
+  }
+}
+
+.ant-modal .ant-modal-content {
+  background-color: transparent;
+  padding: 35px;
+}
+
+.ant-tooltip-inner {
+  display: none;
+}
