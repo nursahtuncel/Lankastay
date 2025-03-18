@@ -24,16 +24,14 @@
   }
 }
 .ant-notification {
-  position: relative;
-
   .ant-notification-notice {
     position: absolute;
-    top: -1030px;
+    top: 65px;
     right: 225px;
     padding: 10px 10px 10px 15px !important  ;
     border-radius: 10px;
     width: 243px !important;
-    max-height: 400px !important;
+    max-height: 300px !important;
     background-color: $white-color;
     border: solid $dusty-gray 2px;
     overflow-y: auto !important;
