@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./styles.scss";
 import { List, Button, Input, Image, Modal, Form } from "antd";
 
+
 const generateData = () => [
     {
         id: 1,
@@ -107,6 +108,7 @@ const ListHotelComponent = () => {
 
     const [filterByName, setFilterByName] = useState("");
     const [filterByDate, setFilterByDate] = useState("");
+    
 
 
     const onLoadMore = () => {
@@ -141,7 +143,8 @@ const ListHotelComponent = () => {
         addForm.validateFields().then(values => {
             const newItem = {
                 id: data.length + 1,
-                ...values
+                ...values,
+                image: values.image || "https://placehold.co/100x100?text=No+Image"
             };
             const newData = [...data, newItem];
             setData(newData);
@@ -163,7 +166,7 @@ const ListHotelComponent = () => {
 
     const loadMore = visibleData.length < data.length && (
         <div style={{ textAlign: 'center', marginTop: 12, height: 32, lineHeight: '32px' }}>
-            <Button onClick={onLoadMore}>Load more</Button>
+            <Button className="onLoadMore" onClick={onLoadMore}>Load more</Button>
         </div>
     );
 
@@ -247,7 +250,7 @@ const ListHotelComponent = () => {
                     <Form.Item name="description" label="Description" rules={[{ required: true }]}>
                         <Input.TextArea />
                     </Form.Item>
-                    <Form.Item name="image" label="Image URL" rules={[{ required: true }]}>
+                    <Form.Item name="image" label="Image URL" rules={[{ required: false }]}>
                         <Input />
                     </Form.Item>
                 </Form>
@@ -268,7 +271,7 @@ const ListHotelComponent = () => {
                         <Form.Item name="description" label="Description" rules={[{ required: true }]}>
                             <Input.TextArea />
                         </Form.Item>
-                        <Form.Item name="image" label="Image URL" rules={[{ required: true }]}>
+                        <Form.Item name="image" label="Image URL" rules={[{ required: false }]}>
                             <Input />
                         </Form.Item>
                     </Form>
