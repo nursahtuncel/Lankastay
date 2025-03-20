@@ -1,0 +1,89 @@
+@use "../../styles/index" as *;
+
+.help-sec {
+  height: 100vh;
+  margin: 0 auto;
+  //overflow: hidden;
+
+  .help-how {
+    height: 100vh;
+    margin: 0 auto;
+
+    display: grid;
+    max-width: 1440px;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+      135deg,
+      $light-green-color,
+      $btn-primary-hover,
+      $text-color,
+      $black-color
+    );
+    position: sticky;
+
+    .help-title {
+      color: $white-color;
+      font-size: 40px;
+      font-weight: 700;
+      margin: 80px auto 0 auto;
+    }
+
+    .ant-input-search {
+      width: 430px !important;
+      margin: 0 auto 50px auto;
+    }
+  }
+
+  .help-guides {
+    display: flex;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-top: 20px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+  }
+  ul {
+    li {
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        max-width: 500px;
+        padding: 40px 20px;
+        border: solid 2px;
+        border-radius: 8px;
+        margin: 20px auto 20px auto;
+        transition: 0.3s ease;
+
+        &:hover {
+          background: rgba(45, 129, 254, 0.1);
+        }
+      }
+    }
+  }
+}
+
+.scroll-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 400px);
+  width: 100%;
+  padding: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
