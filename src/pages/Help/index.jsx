@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./styles.scss";
 import { Input, Space } from "antd";
+import Header from "../../components/HeaderImplementationComponent";
+import Footer from "../../components/Footer";
 
 const { Search } = Input;
 
@@ -47,35 +49,39 @@ const Help = () => {
   };
 
   return (
-    <div className="help-sec">
-      <div className="help-how">
-        <h1 className="help-title">How can we help you?</h1>
+    <div>
+      <Header />
+      <div className="help-sec">
+        <div className="help-how">
+          <h1 className="help-title">How can we help you?</h1>
 
-        <Space direction="vertical">
-          <Search
-            placeholder="Search"
-            allowClear
-            onSearch={onSearch}
-            style={{ width: 200 }}
-            onChange={(e) => onSearch(e.target.value)}
-          />
-        </Space>
-      </div>
+          <Space direction="vertical">
+            <Search
+              placeholder="Search"
+              allowClear
+              onSearch={onSearch}
+              style={{ width: 200 }}
+              onChange={(e) => onSearch(e.target.value)}
+            />
+          </Space>
+        </div>
 
-      <h2 className="help-guides">How-To Guides</h2>
-      <div className="scroll-container">
-        <ul>
-          {filteredGuides.length > 0 ? (
-            filteredGuides.map((guide, index) => (
-              <li key={index}>
-                <a href={guide.href}>{guide.text}</a>
-              </li>
-            ))
-          ) : (
-            <li>No results found</li>
-          )}
-        </ul>
+        <h2 className="help-guides">How-To Guides</h2>
+        <div className="scroll-container">
+          <ul>
+            {filteredGuides.length > 0 ? (
+              filteredGuides.map((guide, index) => (
+                <li key={index}>
+                  <a href={guide.href}>{guide.text}</a>
+                </li>
+              ))
+            ) : (
+              <li>No results found</li>
+            )}
+          </ul>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };
