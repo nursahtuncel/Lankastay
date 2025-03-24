@@ -1,8 +1,21 @@
 import "./styles.scss";
-import { Space, Table, Spin, Layout, Modal, Form, Input, Button } from "antd";
+import "antd/dist/reset.css";
+import {
+  Space,
+  Table,
+  Spin,
+  Layout,
+  Modal,
+  Form,
+  Input,
+  Button,
+  DatePicker,
+  Select,
+  Popover,
+  Checkbox,
+} from "antd";
 import img1 from "../../assets/images/Dashboard/dashboard-layout-1.png";
 import img2 from "../../assets/images/Dashboard/dashboard-layout-2.png";
-import img3 from "../../assets/images/Dashboard/dashboard-layout-3.png";
 import img4 from "../../assets/images/Dashboard/dashboard-layout-4.png";
 import icon1 from "../../assets/images/Dashboard/dashboard-icon1.png";
 import icon2 from "../../assets/images/Dashboard/dashboard-icon2.png";
@@ -11,6 +24,7 @@ import { useEffect, useState } from "react";
 
 const { Content } = Layout;
 const { Column, ColumnGroup } = Table;
+const roles = ["manager", "engineer", "technician", "customer", "owner"];
 
 const endpoint =
   "https://67b4bf36a9acbdb38ed03c5f.mockapi.io/locationData/locationData";
@@ -19,6 +33,7 @@ const AdminDashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [localData, setLocalData] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedRoles, setSelectedRoles] = useState([]);
   const { data, error } = useSWR(endpoint);
 
   useEffect(() => {
@@ -43,10 +58,27 @@ const AdminDashboard = () => {
     );
   }
 
+  const handleRoleFilterChange = (checkedValues) => {
+    setSelectedRoles(checkedValues);
+  };
+
   const filteredData = localData.filter((item) => {
     if (!item.name) return false;
-    return item.name.toLowerCase().includes(searchTerm.toLowerCase());
+
+    //return item.name.toLowerCase().includes(searchTerm.toLowerCase());
+
+    const matchName = item.name.toLowerCase().includes(searchTerm.toLowerCase());
+
+    const roleMatch =
+      selectedRoles.length === 0
+        ? true
+        : selectedRoles.includes(item.role?.toLowerCase());
+
+    return matchName && roleMatch;
+
+   
   });
+
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -54,12 +86,17 @@ const AdminDashboard = () => {
     setIsModalVisible(false);
   };
   const onFinish = (values) => {
+    let dateFormatted = "1 March, 2025";
+    if (values.date) {
+      dateFormatted = values.date.format("DD MMM, YYYY");
+    }
+
     const newUser = {
       id: Date.now(),
       name: values.name,
       email: values.email,
       role: values.role,
-      date: [values.date || "1 March, 2025"],
+      date: [dateFormatted],
     };
     setLocalData([...localData, newUser]);
     setIsModalVisible(false);
@@ -82,13 +119,25 @@ const AdminDashboard = () => {
           />
         </div>
         <div className="dashboard-actions">
-          <div className="add-owner" onClick={showModal}>
+          <button className="add-owner" onClick={showModal}>
             <p className="add-owner-text">Add Owner</p>
             <img className="add-owner-icon" src={img2} alt="Add Owner" />
-          </div>
-          <p className="sort-text">Sort by</p>
-          <img className="sort-icon" src={img3} alt="Sort Icon" />
-          <img className="filter-icon" src={img4} alt="Filter Icon" />
+          </button>
+          <Popover
+            title="Filter by Role"
+            trigger="click"
+            content={
+              <Checkbox.Group
+                options={roles}
+                value={selectedRoles}
+                onChange={handleRoleFilterChange}
+                style={{ display: "flex", flexDirection: "column" }}
+              />
+            }
+          >
+            <img className="filter-icon" src={img4} alt="Filter Icon" />
+          </Popover>
+          
         </div>
       </div>
 
@@ -104,6 +153,7 @@ const AdminDashboard = () => {
                 <div className="email">{record.email}</div>
               </div>
             )}
+            sorter={(a, b) => a.name.localeCompare(b.name)}
           />
           <Column
             title="Role"
@@ -121,6 +171,7 @@ const AdminDashboard = () => {
 
               return <button className={buttonClass}>{role}</button>;
             }}
+            sorter={(a, b) => a.name.localeCompare(b.name)}
           />
           <Column
             title="Create Date"
@@ -128,6 +179,7 @@ const AdminDashboard = () => {
             key="date"
             className="column-date"
             render={(date) => <div className="date">{date}</div>}
+            sorter={(a, b) => a.name.localeCompare(b.name)}
           />
           <Column
             title="Action"
@@ -166,11 +218,17 @@ const AdminDashboard = () => {
           </Form.Item>
 
           <Form.Item label="Role" name="role" rules={[{ required: true }]}>
-            <Input placeholder="e.g. Owner" />
+            <Select placeholder="Select Role" style={{ width: "100%" }}>
+              <Select.Option value="manager">Manager</Select.Option>
+              <Select.Option value="engineer">Engineer</Select.Option>
+              <Select.Option value="technician">Technician</Select.Option>
+              <Select.Option value="customer">Customer</Select.Option>
+              <Select.Option value="owner">Owner</Select.Option>
+            </Select>
           </Form.Item>
 
           <Form.Item label="Date" name="date">
-            <Input placeholder="e.g. 24 Aug, 2023" />
+            <DatePicker style={{ width: "100%" }} placeholder="Select date" />
           </Form.Item>
 
           <Form.Item>
