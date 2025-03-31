@@ -10,11 +10,22 @@ body {
   padding: 1.5rem;
   background-color: $white-color;
 }
+.collapsed-logo{
+  font-family: $primary-font;
+  font-size: 35px;
+  color:$logo-clr;
+  font-weight: 500;
+  cursor: pointer;
 
+
+
+}
 .logo {
+  
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .logo img {

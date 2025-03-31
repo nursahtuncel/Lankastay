@@ -1,3 +1,4 @@
+
 import "./styles.scss";
 import { NavLink } from "react-router-dom";
 
@@ -11,17 +12,24 @@ const menuItems = [
   { path: "/dashboard/settings", icon: "resim7.svg", label: "Settings" },
 ];
 
-const DashboardSidebarComponent = () => {
+const DashboardSidebarComponent = ({collapsed}) => {
   return (
     <div className="sidebar">
-      <div className="logo">
+      <div className="logo" style={{justifyContent: collapsed? "center":" "}} >
+      {collapsed ? 
+  <span className="collapsed-logo">L</span>:
         <img
           src="../src/assets/images/Dashboard/Logo.svg"
           alt="LankaStay logo"
-        />
+        />}
       </div>
 
-      <nav className="nav">
+      <nav
+  className="nav"
+  style={{ transform: collapsed ? "translateX(-20px)" : "translateX(0px)" }}
+>
+
+
         {menuItems.map((item, index) => (
           <NavLink
             key={index}
@@ -30,12 +38,14 @@ const DashboardSidebarComponent = () => {
           >
             {({ isActive }) => (
               <>
-                <img
+                <img 
                   src={`../src/assets/images/sidebar/${item.icon}`}
                   alt={`${item.label} icon`}
                   className={isActive ? "active-icon" : ""}
+                
                 />
-                <span>{item.label}</span>
+                <span style={{display: collapsed? "none": "block"}
+                }>{item.label}</span>
               </>
             )}
           </NavLink>
