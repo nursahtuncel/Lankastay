@@ -1,4 +1,5 @@
 import "./styles.scss";
+import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import DashboardSidebarComponent from "../../components/DashboardSidebarComponent";
 import { DownOutlined } from "@ant-design/icons";
@@ -26,12 +27,18 @@ const items = [
   },
 ];
 const Dashboard = () => {
+  const [collapsed, setCollapsed] = useState(false);
   return (
     <div className="dashboard-content">
       <div className="dashboard-page">
         <Layout className="dashboard-layout">
-          <Sider width="18%">
-            <DashboardSidebarComponent />
+          <Sider
+            width="250px"
+            collapsible
+            collapsed={collapsed}
+            onCollapse={(value) => setCollapsed(value)}
+          >
+            <DashboardSidebarComponent collapsed={collapsed} />
           </Sider>
           <Layout>
             <Header className="dashboard-header">
