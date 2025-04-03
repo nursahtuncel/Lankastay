@@ -89,34 +89,34 @@ const ContactUs = () => {
               name="message"
               placeholder="Your message"
             ></textarea>
-            <Button className={styles.registerBtn} type="primary">
+            <Button className={styles.submitBtn} type="primary">
               SEND
             </Button>
           </form>
           <div className={styles.contactInfo}>
             <div className={styles.phone}>
-              <div className={styles.phoneImg}>
+              <div className={styles.infoImg}>
                 <img src={phoneIcon} alt="Phone Icon" />
               </div>
-              <div className={styles.phoneInfo}>
+              <div className={styles.mainInfo}>
                 <h3>PHONE</h3>
                 <p>123 456 12</p>
               </div>
             </div>
             <div className={styles.fax}>
-              <div className={styles.faxImg}>
+              <div className={styles.infoImg}>
                 <img src={faxIcon} alt="Fax Icon" />
               </div>
-              <div className={styles.faxInfo}>
+              <div className={styles.mainInfo}>
                 <h3>FAX</h3>
                 <p>123 456 13</p>
               </div>
             </div>
             <div className={styles.mail}>
-              <div className={styles.mailImg}>
+              <div className={styles.infoImg}>
                 <img src={emailIcon} alt="Email Icon" />
               </div>
-              <div className={styles.mailInfo}>
+              <div className={styles.mainInfo}>
                 <h3>EMAIL</h3>
                 <p>info@lankastay.com</p>
               </div>
@@ -127,8 +127,8 @@ const ContactUs = () => {
           <iframe
             title="Google Map Location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093127!2d144.9537353153189!3d-37.81627977975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xb19a1e1c2a3356e6!2sMelbourne%20Central!5e0!3m2!1sen!2sau!4v1613963647031!5m2!1sen!2sau"
-            width="100%"
-            height="400"
+            width="575"
+            height="700"
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"

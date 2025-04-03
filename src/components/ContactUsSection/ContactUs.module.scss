@@ -1,1 +1,156 @@
 @use "../../styles/index.scss" as *;
+
+.contactUsSectionWrapper {
+  margin: 0;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  h1 {
+    font-family: $primary-font;
+    font-size: clamp(16px, 4vw, 24px);
+    line-height: 100%;
+    font-weight: 500;
+    color: $text-color;
+  }
+  .contactUsMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 30px;
+    .contactUsForm {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 10px;
+      gap: 40px;
+      h2 {
+        font-family: $primary-font;
+        font-size: clamp(14px, 4vw, 20px);
+        line-height: clamp(16px, 4vw, 24px);
+        font-weight: 400;
+        letter-spacing: 2%;
+        color: $text-color;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 550px;
+        gap: 30px;
+        input,
+        textarea {
+          width: 100%;
+          padding: 0.75rem;
+          border: 1px solid $btn-border-color;
+          border-radius: 5px;
+          transition: all 0.2s ease-in-out;
+          &::placeholder {
+            font-family: $primary-font;
+            font-size: clamp(8px, 2vw, 14px);
+            line-height: clamp(16px, 3vw, 24px);
+            font-weight: 400;
+            color: $btn-border-color;
+          }
+          &:focus {
+            padding: 16px;
+            border-color: $black-color;
+            outline: none;
+          }
+        }
+        .selectWrapper {
+          position: relative;
+          border: 1px solid #ddd;
+          padding: 10px;
+          cursor: pointer;
+          border-radius: 5px;
+          text-align: left;
+          .selectedOption {
+            .optionList {
+              position: absolute;
+              background: white;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+              border-radius: 5px;
+              margin-top: 5px;
+              div {
+                padding: 10px;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        textarea {
+          resize: none;
+          height: 100px;
+        }
+        .submitBtn {
+          font-family: $primary-font;
+          font-size: clamp(10px, 2vw, 16px);
+          line-height: 100%;
+          font-weight: 600;
+          color: $white-color;
+          background-color: $primary-color;
+          padding: 12px 24px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          &:hover {
+            background-color: $main-btn-color-hover;
+            color: $second-white-color;
+          }
+        }
+      }
+      .contactInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+        flex-wrap: wrap;
+        padding-top: 30px;
+        .phone,
+        .fax,
+        .mail {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 10px;
+          .infoImg {
+            width: 24px;
+            height: 24px;
+            color: $text-color;
+          }
+          .mainInfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 1px;
+            flex-wrap: nowrap;
+            h3 {
+              font-family: $primary-font;
+              font-size: clamp(8px, 2vw, 14px);
+              line-height: clamp(12px, 4vw, 20px);
+              font-weight: 500;
+              letter-spacing: 2%;
+              color: $text-color;
+            }
+            p {
+              font-family: $primary-font;
+              font-size: clamp(8px, 2vw, 14px);
+              line-height: clamp(12px, 4vw, 20px);
+              font-weight: 400;
+              letter-spacing: 2%;
+              color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+    .contactUsMap {
+      flex: 1;
+    }
+  }
+}
