@@ -27,14 +27,17 @@ const items = [
   },
 ];
 const Dashboard = () => {
-    const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
   return (
     <div className="dashboard-content">
       <div className="dashboard-page">
         <Layout className="dashboard-layout">
-    
-        <Sider width="18%" collapsible collapsed={collapsed} 
-        onCollapse={(value) => setCollapsed(value)}>
+          <Sider
+            width="250px"
+            collapsible
+            collapsed={collapsed}
+            onCollapse={(value) => setCollapsed(value)}
+          >
             <DashboardSidebarComponent collapsed={collapsed} />
           </Sider>
           <Layout>
