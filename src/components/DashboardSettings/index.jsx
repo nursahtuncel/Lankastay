@@ -1,6 +1,16 @@
 import "./styles.scss";
 import { useState } from "react";
-import { message, Upload, Form, Input, Button, Space, Modal } from "antd";
+import {
+  message,
+  Upload,
+  Form,
+  Input,
+  Button,
+  Space,
+  Modal,
+  Row,
+  Col,
+} from "antd";
 import add from "../../assets/images/Dashboard/gallery-add.png";
 import axios from "axios";
 
@@ -35,7 +45,7 @@ const DashboardSettings = () => {
           phone,
           bio,
           imageUrl,
-        }
+        },
       );
 
       if (response.status === 200 || response.status === 201) {
@@ -48,7 +58,7 @@ const DashboardSettings = () => {
 
       if (error.response) {
         message.error(
-          `Server Error: ${error.response.data.message || "Unknown error"}`
+          `Server Error: ${error.response.data.message || "Unknown error"}`,
         );
       } else if (error.request) {
         message.error("No response received from server.");
@@ -107,45 +117,61 @@ const DashboardSettings = () => {
           >
             <img alt="Preview" style={{ width: "100%" }} src={previewImage} />
           </Modal>
-
-          <Form.Item name="name" label="Name" className="form-item">
-            <Input
-              placeholder="Please enter your name"
-              className="form-input"
-            />
-          </Form.Item>
-          <Form.Item
-            name="email"
-            label="Email"
-            rules={[{ type: "email" }]}
-            className="form-item"
-          >
-            <Input
-              placeholder="Please enter your email"
-              className="form-input"
-            />
-          </Form.Item>
-          <Form.Item name="username" label="Username" className="form-item">
-            <Input
-              placeholder="Please enter your username"
-              className="form-input"
-            />
-          </Form.Item>
-          <Form.Item name="phone" label="Phone Number" className="form-item">
-            <Input
-              placeholder="Please enter your phone number"
-              className="form-input"
-              type="number"
-            />
-          </Form.Item>
-          <Form.Item name="bio" label="Bio" className="form-item">
-            <Input.TextArea
-              placeholder="Write your Bio here e.g your hobbies, interests ETC"
-              className="form-input-bio"
-            />
-          </Form.Item>
-          <Form.Item className="form-buttons">
-            <Space>
+          <Row gutter={16} className="w-100">
+            <Col span={12}>
+              <Form.Item name="name" label="Name" className="form-item">
+                <Input placeholder="Please enter your name" className="w-100" />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                name="email"
+                label="Email"
+                rules={[{ type: "email" }]}
+                className="form-item "
+              >
+                <Input
+                  placeholder="Please enter your email"
+                  className="form-input w-100"
+                />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16} className="w-100">
+            <Col span={12}>
+              <Form.Item name="username" label="Username" className="form-item">
+                <Input
+                  placeholder="Please enter your username"
+                  className="form-input w-100"
+                />
+              </Form.Item>
+            </Col>
+            <Col span={12}>
+              <Form.Item
+                name="phone"
+                label="Phone Number"
+                className="form-item"
+              >
+                <Input
+                  placeholder="Please enter your phone number"
+                  className="form-input w-100"
+                  type="number"
+                />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row gutter={16} className="w-100">
+            <Col span={24}>
+              <Form.Item name="bio" label="Bio" className="form-item">
+                <Input.TextArea
+                  placeholder="Write your Bio here e.g your hobbies, interests ETC"
+                  className="form-input-bio w-100"
+                />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Form.Item className="form-buttons w-100">
+            <Space className="w-100">
               <Button
                 type="primary"
                 htmlType="submit"
