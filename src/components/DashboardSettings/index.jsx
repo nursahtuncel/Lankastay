@@ -118,12 +118,12 @@ const DashboardSettings = () => {
             <img alt="Preview" style={{ width: "100%" }} src={previewImage} />
           </Modal>
           <Row gutter={16} className="w-100">
-            <Col span={12}>
+            <Col xs={24} sm={24} lg={12}>
               <Form.Item name="name" label="Name" className="form-item">
                 <Input placeholder="Please enter your name" className="w-100" />
               </Form.Item>
             </Col>
-            <Col span={12}>
+            <Col xs={24} sm={24} lg={12}>
               <Form.Item
                 name="email"
                 label="Email"
@@ -138,7 +138,7 @@ const DashboardSettings = () => {
             </Col>
           </Row>
           <Row gutter={16} className="w-100">
-            <Col span={12}>
+            <Col xs={24} sm={24} lg={12}>
               <Form.Item name="username" label="Username" className="form-item">
                 <Input
                   placeholder="Please enter your username"
@@ -146,7 +146,7 @@ const DashboardSettings = () => {
                 />
               </Form.Item>
             </Col>
-            <Col span={12}>
+            <Col xs={24} sm={24} lg={12}>
               <Form.Item
                 name="phone"
                 label="Phone Number"
@@ -171,7 +171,7 @@ const DashboardSettings = () => {
             </Col>
           </Row>
           <Form.Item className="form-buttons w-100">
-            <Space className="w-100">
+            <Space wrap className="w-100">
               <Button
                 type="primary"
                 htmlType="submit"
