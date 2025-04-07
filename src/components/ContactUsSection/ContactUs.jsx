@@ -29,7 +29,7 @@ const ContactUs = () => {
     }
 
     if (!emailPattern.test(formData.email)) {
-      alert("Email must contain @ and end with .com");
+      alert("Please enter a valid email address");
       return;
     }
 
@@ -56,7 +56,13 @@ const ContactUs = () => {
               placeholder="Name *"
               required
             />
-            <input type="email" id="email" name="email" placeholder="Email" />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email *"
+              required
+            />
             <input
               type="tel"
               id="phone"
@@ -127,8 +133,6 @@ const ContactUs = () => {
           <iframe
             title="Google Map Location"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093127!2d144.9537353153189!3d-37.81627977975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xb19a1e1c2a3356e6!2sMelbourne%20Central!5e0!3m2!1sen!2sau!4v1613963647031!5m2!1sen!2sau"
-            width="575"
-            height="700"
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
