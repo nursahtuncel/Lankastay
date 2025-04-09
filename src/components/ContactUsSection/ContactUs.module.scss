@@ -72,16 +72,17 @@
           cursor: pointer;
           border-radius: 5px;
           text-align: left;
+          background-color: white;
           .selectedOption {
             .optionList {
               position: absolute;
-              background: white;
-              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
               border-radius: 5px;
               margin-top: 5px;
+              overflow: hidden;
               div {
                 padding: 10px;
                 cursor: pointer;
+                border-bottom: $btn-border-color;
               }
             }
           }
@@ -176,7 +177,8 @@
   .contactUsSectionWrapper {
     padding: 20px 30px;
     .contactUsMain {
-      flex-direction: column;
+      flex-direction: column-reverse;
+      gap: 20px;
       .contactUsForm,
       .contactUsMap {
         width: 100%;
@@ -201,7 +203,7 @@
     padding: 20px;
 
     .contactUsMain {
-      gap: 20px;
+      gap: 10px;
 
       .contactUsMap {
         iframe {
