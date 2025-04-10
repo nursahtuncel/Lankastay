@@ -1,49 +1,89 @@
 import "./styles.scss";
-import "antd/dist/reset.css";
+import { useState, useEffect } from "react";
 import {
   Space,
   Table,
   Spin,
   Layout,
-  Modal,
-  Form,
-  Input,
   Button,
-  DatePicker,
-  Select,
   Popover,
+  Modal,
+  Input,
+  Select,
   Checkbox,
+  Form,
+  DatePicker,
 } from "antd";
+import useSWR from "swr";
 import img1 from "../../assets/images/Dashboard/dashboard-layout-1.png";
 import img2 from "../../assets/images/Dashboard/dashboard-layout-2.png";
+import img3 from "../../assets/images/Dashboard/dashboard-layout-3.png";
 import img4 from "../../assets/images/Dashboard/dashboard-layout-4.png";
 import icon1 from "../../assets/images/Dashboard/dashboard-icon1.png";
 import icon2 from "../../assets/images/Dashboard/dashboard-icon2.png";
-import useSWR from "swr";
-import { useEffect, useState } from "react";
 
 const { Content } = Layout;
 const { Column, ColumnGroup } = Table;
+const { Option } = Select;
 const roles = ["manager", "engineer", "technician", "customer", "owner"];
 
 const endpoint =
   "https://67b4bf36a9acbdb38ed03c5f.mockapi.io/locationData/locationData";
 
 const AdminDashboard = () => {
+  const { data: fetchedData, error } = useSWR(endpoint);
   const [searchTerm, setSearchTerm] = useState("");
-  const [localData, setLocalData] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedRoles, setSelectedRoles] = useState([]);
-  const { data, error } = useSWR(endpoint);
+  const [localData, setLocalData] = useState([]);
+  const [editingId, setEditingId] = useState(null);
+  const [editedRow, setEditedRow] = useState({});
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [recordToDelete, setRecordToDelete] = useState(null);
 
   useEffect(() => {
-    if (data) {
-      setLocalData(data);
+    if (fetchedData) {
+      setLocalData(fetchedData.slice(0, 7));
     }
-  }, [data]);
+  }, [fetchedData]);
 
-  if (error) return <h1>Hata: {error.message}</h1>;
-  if (!data) {
+  const handleDelete = (record) => {
+    const newData = localData.filter((item) => item.id !== record.id);
+    setLocalData(newData);
+    setIsDeleteModalOpen(false);
+  };
+
+  const handleEdit = (record) => {
+    setEditingId(record.id);
+    setEditedRow({ ...record });
+  };
+
+  const handleSave = () => {
+    const newData = localData.map((item) => {
+      if (item.id === editingId) {
+        return { ...item, ...editedRow };
+      }
+      return item;
+    });
+    setLocalData(newData);
+    setEditingId(null);
+  };
+
+  const showDeleteConfirm = (record) => {
+    setRecordToDelete(record);
+    setIsDeleteModalOpen(true);
+  };
+  const getRoleButtonClass = (role) => {
+    if (role === "Super Admin" || role === "Owner") {
+      return "role-button role-button-blue";
+    } else if (role === "Pending") {
+      return "role-button role-button-gray";
+    }
+    return "role-button";
+  };
+
+  if (error) return <h1>Error: {error.message}</h1>;
+  if (!fetchedData) {
     return (
       <div
         style={{
@@ -57,17 +97,17 @@ const AdminDashboard = () => {
       </div>
     );
   }
-
   const handleRoleFilterChange = (checkedValues) => {
     setSelectedRoles(checkedValues);
   };
-
   const filteredData = localData.filter((item) => {
     if (!item.name) return false;
 
     //return item.name.toLowerCase().includes(searchTerm.toLowerCase());
 
-    const matchName = item.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchName = item.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
 
     const roleMatch =
       selectedRoles.length === 0
@@ -75,8 +115,6 @@ const AdminDashboard = () => {
         : selectedRoles.includes(item.role?.toLowerCase());
 
     return matchName && roleMatch;
-
-   
   });
 
   const showModal = () => {
@@ -101,6 +139,34 @@ const AdminDashboard = () => {
     setLocalData([...localData, newUser]);
     setIsModalVisible(false);
   };
+  const editPopoverContent = (
+    <div>
+      <Input
+        value={editedRow.name}
+        onChange={(e) => setEditedRow({ ...editedRow, name: e.target.value })}
+        placeholder="Name"
+        style={{ marginBottom: 8 }}
+      />
+      <Input
+        value={editedRow.email}
+        onChange={(e) => setEditedRow({ ...editedRow, email: e.target.value })}
+        placeholder="Email"
+        style={{ marginBottom: 8 }}
+      />
+      <Select
+        value={editedRow.role}
+        onChange={(value) => setEditedRow({ ...editedRow, role: value })}
+        style={{ width: "100%", marginBottom: 8 }}
+      >
+        <Option value="Super Admin">Super Admin</Option>
+        <Option value="Owner">Owner</Option>
+        <Option value="Pending">Pending</Option>
+      </Select>
+      <Button type="primary" onClick={handleSave} style={{ width: "100%" }}>
+        Save
+      </Button>
+    </div>
+  );
 
   return (
     <Content className="content-content">
@@ -137,7 +203,6 @@ const AdminDashboard = () => {
           >
             <img className="filter-icon" src={img4} alt="Filter Icon" />
           </Popover>
-          
         </div>
       </div>
 
@@ -185,14 +250,30 @@ const AdminDashboard = () => {
             title="Action"
             key="action"
             className="column-action"
-            render={() => (
+            render={(_, record) => (
               <Space size="middle" className="action-container">
-                <button className="action-invite">
-                  <img src={icon1} alt="Invite" />
-                </button>
-                <button className="action-delete">
+                <Popover
+                  content={editPopoverContent}
+                  title="Edit User"
+                  trigger="click"
+                  open={editingId === record.id}
+                  onOpenChange={(open) => {
+                    if (!open) setEditingId(null);
+                  }}
+                >
+                  <button
+                    className="action-invite"
+                    onClick={() => handleEdit(record)}
+                  >
+                    <img src={icon1} alt="Edit" />
+                  </button>
+                </Popover>
+                <Button
+                  className="action-delete"
+                  onClick={() => showDeleteConfirm(record)}
+                >
                   <img src={icon2} alt="Delete" />
-                </button>
+                </Button>
               </Space>
             )}
           />

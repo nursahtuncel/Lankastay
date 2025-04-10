@@ -1,0 +1,83 @@
+@use "../../styles/index" as *;
+
+.help-sec {
+  margin: 0 auto;
+
+  .scroll-container ul {
+    height: 382px;
+  }
+  .help-how {
+    margin: 0 auto;
+    display: grid;
+    height: 180px;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+      135deg,
+      $light-green-color,
+      $btn-primary-hover,
+      $text-color,
+      $black-color
+    );
+    position: sticky;
+
+    .help-title {
+      color: $white-color;
+      font-size: 40px;
+      font-weight: 700;
+      margin: 30px auto 0 auto;
+    }
+    .ant-input-search {
+      width: 430px !important;
+      margin: 0 auto 20px auto;
+    }
+  }
+  .help-guides {
+    display: flex;
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 75px;
+    justify-content: center;
+    align-items: center;
+    color: $main-btn-color;
+    font-weight: 600;
+    font-size: 28px;
+  }
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1440px;
+    margin: 0 auto;
+
+    li {
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        width: 320px;
+        height: 90px;
+        padding: 40px 20px;
+        margin: 5px clamp(5px, 1vw, 30px);
+        border: solid 2px;
+        border-radius: 8px;
+        transition: 0.3s ease;
+        line-height: 24px;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+
+        &:hover {
+          background: lighten($text-color, 70%);
+        }
+      }
+    }
+  }
+}
+.HeaderImplementationComponent {
+  margin: 0 auto;
+}
