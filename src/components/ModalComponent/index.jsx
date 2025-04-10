@@ -28,12 +28,13 @@ const ModalComponent = ({
   }, [navigate, navigateTo, onClose]);
   
   useEffect(() => {
+    setIsModalVisible(true);
     if (autoClose) {
       setTimeout(() => {
         handleModalClose();
       }, autoCloseTime);
     }
-  }, [autoClose,handleModalClose,autoCloseTime]);
+  }, [autoClose, handleModalClose, autoCloseTime]);
 
   return (
     <div className="modal-container">

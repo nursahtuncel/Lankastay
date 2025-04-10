@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import image1 from "../../assets/Logo.svg";
+import image1 from "../../../public/[JA-35]/dashboardLankaStay.png"
 import Hamburger from "hamburger-react";
 import "./styles.scss";
 import { Button } from "../Button";

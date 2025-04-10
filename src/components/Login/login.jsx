@@ -1,10 +1,11 @@
 import styles from "./login.module.scss";
 import loginImg from "../../assets/images/Login&Register/login&register.png";
-import logo from "../../assets/Logo.svg";
+import logo from "../../assets/images/Dashboard/Logo.svg";
 import { Button } from "../Button";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import ModalComponent from "../ModalComponent"; 
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -12,13 +13,14 @@ const Login = () => {
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false); 
+  
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
-  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -38,8 +40,7 @@ const Login = () => {
       return;
     }
 
-    alert("Login successful!");
-    navigate("/");
+    setIsModalVisible(true);
   };
 
   return (
@@ -94,6 +95,14 @@ const Login = () => {
           </a>
         </form>
       </div>
+
+      {isModalVisible && (
+        <ModalComponent
+          modalMessage="Giriş Başarılı!"
+          buttonName="Devam Et"
+          onClose={() => navigate("/dashboard")}
+        />
+      )}
     </div>
   );
 };
