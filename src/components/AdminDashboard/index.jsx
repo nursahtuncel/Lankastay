@@ -17,7 +17,6 @@ import {
 import useSWR from "swr";
 import img1 from "../../assets/images/Dashboard/dashboard-layout-1.png";
 import img2 from "../../assets/images/Dashboard/dashboard-layout-2.png";
-import img3 from "../../assets/images/Dashboard/dashboard-layout-3.png";
 import img4 from "../../assets/images/Dashboard/dashboard-layout-4.png";
 import icon1 from "../../assets/images/Dashboard/dashboard-icon1.png";
 import icon2 from "../../assets/images/Dashboard/dashboard-icon2.png";
@@ -40,6 +39,7 @@ const AdminDashboard = () => {
   const [editedRow, setEditedRow] = useState({});
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [recordToDelete, setRecordToDelete] = useState(null);
+  const [form] = Form.useForm();
 
   useEffect(() => {
     if (fetchedData) {
@@ -47,10 +47,13 @@ const AdminDashboard = () => {
     }
   }, [fetchedData]);
 
-  const handleDelete = (record) => {
-    const newData = localData.filter((item) => item.id !== record.id);
-    setLocalData(newData);
-    setIsDeleteModalOpen(false);
+  const handleDelete = () => {
+    if (recordToDelete) {
+      const newData = localData.filter((item) => item.id !== recordToDelete.id);
+      setLocalData(newData);
+      setIsDeleteModalOpen(false);
+      setRecordToDelete(null);
+    }
   };
 
   const handleEdit = (record) => {
@@ -73,6 +76,7 @@ const AdminDashboard = () => {
     setRecordToDelete(record);
     setIsDeleteModalOpen(true);
   };
+
   const getRoleButtonClass = (role) => {
     if (role === "Super Admin" || role === "Owner") {
       return "role-button role-button-blue";
@@ -97,13 +101,13 @@ const AdminDashboard = () => {
       </div>
     );
   }
+
   const handleRoleFilterChange = (checkedValues) => {
     setSelectedRoles(checkedValues);
   };
+
   const filteredData = localData.filter((item) => {
     if (!item.name) return false;
-
-    //return item.name.toLowerCase().includes(searchTerm.toLowerCase());
 
     const matchName = item.name
       .toLowerCase()
@@ -118,11 +122,20 @@ const AdminDashboard = () => {
   });
 
   const showModal = () => {
+    form.resetFields();
     setIsModalVisible(true);
   };
+
   const handleCancel = () => {
     setIsModalVisible(false);
+    form.resetFields();
   };
+
+  const handleDeleteCancel = () => {
+    setIsDeleteModalOpen(false);
+    setRecordToDelete(null);
+  };
+
   const onFinish = (values) => {
     let dateFormatted = "1 March, 2025";
     if (values.date) {
@@ -130,15 +143,17 @@ const AdminDashboard = () => {
     }
 
     const newUser = {
-      id: Date.now(),
+      id: Date.now().toString(),
       name: values.name,
       email: values.email,
       role: values.role,
-      date: [dateFormatted],
+      date: dateFormatted,
     };
     setLocalData([...localData, newUser]);
     setIsModalVisible(false);
+    form.resetFields();
   };
+
   const editPopoverContent = (
     <div>
       <Input
@@ -225,18 +240,12 @@ const AdminDashboard = () => {
             dataIndex="role"
             key="role"
             className="column-role"
-            render={(role) => {
-              let buttonClass = "role-button";
-
-              if (role === "Super Admin" || role === "Owner") {
-                buttonClass += " role-button-blue";
-              } else if (role === "Pending") {
-                buttonClass += " role-button-gray";
-              }
-
-              return <button className={buttonClass}>{role}</button>;
-            }}
-            sorter={(a, b) => a.name.localeCompare(b.name)}
+            render={(role) => (
+              <button className={getRoleButtonClass(role)}>{role}</button>
+            )}
+            sorter={(a, b) =>
+              a.role && b.role ? a.role.localeCompare(b.role) : 0
+            }
           />
           <Column
             title="Create Date"
@@ -244,7 +253,10 @@ const AdminDashboard = () => {
             key="date"
             className="column-date"
             render={(date) => <div className="date">{date}</div>}
-            sorter={(a, b) => a.name.localeCompare(b.name)}
+            sorter={(a, b) => {
+              if (!a.date || !b.date) return 0;
+              return a.date.toString().localeCompare(b.date.toString());
+            }}
           />
           <Column
             title="Action"
@@ -279,13 +291,15 @@ const AdminDashboard = () => {
           />
         </ColumnGroup>
       </Table>
+
+      {/* Add User Modal */}
       <Modal
         title="Add New Owner"
         open={isModalVisible}
         onCancel={handleCancel}
         footer={null}
       >
-        <Form layout="vertical" onFinish={onFinish}>
+        <Form layout="vertical" onFinish={onFinish} form={form}>
           <Form.Item label="Name" name="name" rules={[{ required: true }]}>
             <Input />
           </Form.Item>
@@ -300,11 +314,13 @@ const AdminDashboard = () => {
 
           <Form.Item label="Role" name="role" rules={[{ required: true }]}>
             <Select placeholder="Select Role" style={{ width: "100%" }}>
+              <Select.Option value="Super Admin">Super Admin</Select.Option>
+              <Select.Option value="Owner">Owner</Select.Option>
+              <Select.Option value="Pending">Pending</Select.Option>
               <Select.Option value="manager">Manager</Select.Option>
               <Select.Option value="engineer">Engineer</Select.Option>
               <Select.Option value="technician">Technician</Select.Option>
               <Select.Option value="customer">Customer</Select.Option>
-              <Select.Option value="owner">Owner</Select.Option>
             </Select>
           </Form.Item>
 
@@ -319,6 +335,23 @@ const AdminDashboard = () => {
             <Button onClick={handleCancel}>Cancel</Button>
           </Form.Item>
         </Form>
+      </Modal>
+
+      {/* Delete Confirmation Modal */}
+      <Modal
+        title="Delete User"
+        open={isDeleteModalOpen}
+        onOk={handleDelete}
+        onCancel={handleDeleteCancel}
+        okText="Yes, Delete"
+        cancelText="Cancel"
+      >
+        <p>Are you sure you want to delete this user?</p>
+        {recordToDelete && (
+          <p>
+            <strong>{recordToDelete.name}</strong> ({recordToDelete.email})
+          </p>
+        )}
       </Modal>
     </Content>
   );
