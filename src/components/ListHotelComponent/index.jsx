@@ -49,7 +49,7 @@ const generateData = () => [
     {
         id: 7,
         name: "Top View",
-        date: moment("2023-07-01"),
+        date: moment("2023-07-02"),
         description: "It is a paradise that offers a comfortable holiday experience with its sea view, sunbathing areas and stylish pool.",
         image: "https://fosterandreed.com/wp-content/uploads/2022/12/Foster-Reed-Shangri-La-Colombo-02.jpg"
     },
