@@ -17,6 +17,7 @@ import HelpCenterComponent from "./components/HelpCenterComponent";
 import DashboardSettings from "./components/DashboardSettings";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import { FloatButton } from "antd";
+import ListHotelComponent from "./components/ListHotelComponent";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -33,7 +34,7 @@ function App() {
           <Route path="/help" element={<Help />} />
 
           <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="objectives" element={<Booking />} />
+            <Route path="list" element={<ListHotelComponent />} />
             <Route path="booking" element={<Booking />} />
             <Route path="refunds" element={<Booking />} />
             <Route path="messages" element={<Booking />} />
