@@ -1,13 +1,12 @@
 @use "../../styles/index" as *;
 
 nav {
- padding-top: 30px;
-padding-left: 24px;
+  padding-top: 30px;
   transition: all 0.3s ease;
   display: flex;
   gap: 20px;
   width: 100%;
-  max-width: 1138px;
+  max-width: 1248px;
   justify-content: space-between;
   align-items: start;
 
