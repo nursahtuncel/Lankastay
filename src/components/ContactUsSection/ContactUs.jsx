@@ -3,12 +3,9 @@ import phoneIcon from "../../assets/images/icons/phoneicon.png";
 import faxIcon from "../../assets/images/icons/faxicon.png";
 import emailIcon from "../../assets/images/icons/emailicon.png";
 import { Button } from "../Button";
-import { useState } from "react";
+import { Select } from "antd";
 
 const ContactUs = () => {
-  const [isSelectOpen, setIsSelectOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("How did you find us?");
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -16,7 +13,7 @@ const ContactUs = () => {
       name: e.target.name.value,
       email: e.target.email.value,
       phone: e.target.phone.value,
-      source: selectedOption,
+      source: e.target.source.value,
       message: e.target.message.value,
     };
 
@@ -35,11 +32,6 @@ const ContactUs = () => {
 
     localStorage.setItem("contactForm", JSON.stringify(formData));
     alert("Thank you for contacting us! We will reach out to you soon");
-  };
-
-  const handleSelectOption = (option) => {
-    setSelectedOption(option);
-    setIsSelectOpen(false);
   };
 
   return (
@@ -70,26 +62,16 @@ const ContactUs = () => {
               placeholder="Phone number *"
               required
             />
-            <div
-              className={styles.selectWrapper}
-              onClick={() => setIsSelectOpen(!isSelectOpen)}
-            >
-              <div className={styles.selectedOption}>{selectedOption}</div>
-              {isSelectOpen && (
-                <div className={styles.optionsList}>
-                  <div onClick={() => handleSelectOption("Search Engine")}>
-                    Search Engine
-                  </div>
-                  <div onClick={() => handleSelectOption("Social Media")}>
-                    Social Media
-                  </div>
-                  <div onClick={() => handleSelectOption("Friend Referral")}>
-                    Friend Referral
-                  </div>
-                  <div onClick={() => handleSelectOption("Other")}>Other</div>
-                </div>
-              )}
-            </div>
+            <Select
+              defaultValue="How did you find us?"
+              style={{ width: "100%" }}
+              options={[
+                { value: "engine", label: "Search Engine" },
+                { value: "media", label: "Social Media" },
+                { value: "friends", label: "Friend Referral" },
+                { value: "other", label: "Other" },
+              ]}
+            />
             <textarea
               id="message"
               name="message"

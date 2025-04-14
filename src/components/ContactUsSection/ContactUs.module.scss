@@ -19,10 +19,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
-    gap: 30px;
-    @media (max-width: 1200px) {
-      flex-wrap: wrap;
-    }
+    gap: 50px;
     .contactUsForm {
       flex: 1;
       display: flex;
@@ -63,28 +60,6 @@
             padding: 16px;
             border-color: $black-color;
             outline: none;
-          }
-        }
-        .selectWrapper {
-          position: relative;
-          border: 1px solid #ddd;
-          padding: 10px;
-          cursor: pointer;
-          border-radius: 5px;
-          text-align: left;
-          background-color: white;
-          .selectedOption {
-            .optionList {
-              position: absolute;
-              border-radius: 5px;
-              margin-top: 5px;
-              overflow: hidden;
-              div {
-                padding: 10px;
-                cursor: pointer;
-                border-bottom: $btn-border-color;
-              }
-            }
           }
         }
         textarea {
