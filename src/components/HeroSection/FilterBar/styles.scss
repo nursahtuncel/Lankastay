@@ -1,4 +1,4 @@
-@use '../../../styles/index.scss' as *;
+@use "../../../styles/index.scss" as *;
 
 @keyframes fadeIn {
   from {
@@ -39,7 +39,8 @@
     padding: 10px;
     border-radius: 14px;
 
-    .ant-picker, .ant-select {
+    .ant-picker,
+    .ant-select {
       width: 100%;
       background: transparent !important;
       outline: none !important;
@@ -69,7 +70,7 @@
   }
 
   .icon {
-    font-size: clamp(18px,3vw, 20px);
+    font-size: clamp(18px, 3vw, 20px);
     color: $black-color;
   }
 
@@ -82,7 +83,7 @@
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-  
+
     &:hover {
       background-color: $text-color;
       transition: 0.3s;
@@ -90,14 +91,8 @@
   }
 }
 
-@media screen and (max-width: 1150px) {
-  .filter-bar {
-    width: 95%;
-  }
-}
-
 @media screen and (max-width: 950px) {
-  .filter-bar{
+  .filter-bar {
     .filter-options {
       justify-content: space-evenly;
     }
@@ -126,6 +121,5 @@
       height: 60px;
       gap: 8px;
     }
-      
   }
 }

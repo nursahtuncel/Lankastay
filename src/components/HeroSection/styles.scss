@@ -3,9 +3,9 @@
 .hero-section {
   display: flex;
   justify-content: space-between;
-  max-width: 1142px;
-  margin: 50px auto;
-  padding: 0 10px;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 50px 0;
   gap: clamp(50px, 17vw, 192px);
 
   .hero-content {
@@ -90,9 +90,7 @@
   .hero-section {
     display: grid;
     justify-content: space-between;
-    max-width: 1142px;
-    margin: 50px auto;
-    padding: 0 10px;
+    padding: 10px 0;
     gap: 40px;
 
     .hero-content {
