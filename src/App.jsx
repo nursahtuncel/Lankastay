@@ -13,6 +13,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfCondition from "./pages/TermsOfCondition";
 import { SWRConfig } from "swr";
 import AdminDashboard from "./components/AdminDashboard";
+import Messages from "./components/Messages";
 import HelpCenterComponent from "./components/HelpCenterComponent";
 import DashboardSettings from "./components/DashboardSettings";
 import { QuestionCircleOutlined } from "@ant-design/icons";
@@ -37,7 +38,7 @@ function App() {
             <Route path="list" element={<ListHotelComponent />} />
             <Route path="booking" element={<Booking />} />
             <Route path="refunds" element={<Booking />} />
-            <Route path="messages" element={<Booking />} />
+            <Route path="messages" element={<Messages />} />
             <Route path="help" element={<HelpCenterComponent />} />
             <Route path="settings" element={<DashboardSettings />} />
             <Route path="admin" element={<AdminDashboard />} />
