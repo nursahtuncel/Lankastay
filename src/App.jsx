@@ -33,6 +33,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/help" element={<Help />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-condition" element={<TermsOfCondition />} />
 
           <Route path="/dashboard" element={<Dashboard />}>
             <Route path="list" element={<ListHotelComponent />} />

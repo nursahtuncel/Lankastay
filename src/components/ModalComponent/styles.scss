@@ -2,7 +2,6 @@
 
 .custom-modal {
   .ant-modal-content {
-    background: none;
     box-shadow: none;
     display: flex;
     justify-content: center;
@@ -11,7 +10,8 @@
   }
 
   .modal-wrapper {
-    background: url("../../assets/images/ModalComponent/background.png") no-repeat center center/cover;
+    background: url("../../assets/images/ModalComponent/background.png")
+      no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;

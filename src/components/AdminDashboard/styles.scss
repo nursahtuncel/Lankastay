@@ -46,6 +46,7 @@
     align-items: center;
 
     .add-owner {
+      border: none;
       border-radius: 16px;
       display: flex;
       align-items: center;
@@ -76,6 +77,8 @@
     .filter-icon {
       width: 19px;
       height: 19px;
+      margin-right: 10px;
+      cursor: pointer;
     }
   }
   .table {

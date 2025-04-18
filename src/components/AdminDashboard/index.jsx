@@ -10,11 +10,13 @@ import {
   Modal,
   Input,
   Select,
+  Checkbox,
+  Form,
+  DatePicker,
 } from "antd";
 import useSWR from "swr";
 import img1 from "../../assets/images/Dashboard/dashboard-layout-1.png";
 import img2 from "../../assets/images/Dashboard/dashboard-layout-2.png";
-import img3 from "../../assets/images/Dashboard/dashboard-layout-3.png";
 import img4 from "../../assets/images/Dashboard/dashboard-layout-4.png";
 import icon1 from "../../assets/images/Dashboard/dashboard-icon1.png";
 import icon2 from "../../assets/images/Dashboard/dashboard-icon2.png";
@@ -22,16 +24,22 @@ import icon2 from "../../assets/images/Dashboard/dashboard-icon2.png";
 const { Content } = Layout;
 const { Column, ColumnGroup } = Table;
 const { Option } = Select;
+const roles = ["manager", "engineer", "technician", "customer", "owner"];
+
 const endpoint =
   "https://67b4bf36a9acbdb38ed03c5f.mockapi.io/locationData/locationData";
 
 const AdminDashboard = () => {
   const { data: fetchedData, error } = useSWR(endpoint);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedRoles, setSelectedRoles] = useState([]);
   const [localData, setLocalData] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [editedRow, setEditedRow] = useState({});
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [recordToDelete, setRecordToDelete] = useState(null);
+  const [form] = Form.useForm();
 
   useEffect(() => {
     if (fetchedData) {
@@ -39,10 +47,13 @@ const AdminDashboard = () => {
     }
   }, [fetchedData]);
 
-  const handleDelete = (record) => {
-    const newData = localData.filter((item) => item.id !== record.id);
-    setLocalData(newData);
-    setIsDeleteModalOpen(false);
+  const handleDelete = () => {
+    if (recordToDelete) {
+      const newData = localData.filter((item) => item.id !== recordToDelete.id);
+      setLocalData(newData);
+      setIsDeleteModalOpen(false);
+      setRecordToDelete(null);
+    }
   };
 
   const handleEdit = (record) => {
@@ -65,6 +76,7 @@ const AdminDashboard = () => {
     setRecordToDelete(record);
     setIsDeleteModalOpen(true);
   };
+
   const getRoleButtonClass = (role) => {
     if (role === "Super Admin" || role === "Owner") {
       return "role-button role-button-blue";
@@ -89,6 +101,59 @@ const AdminDashboard = () => {
       </div>
     );
   }
+
+  const handleRoleFilterChange = (checkedValues) => {
+    setSelectedRoles(checkedValues);
+  };
+
+  const filteredData = localData.filter((item) => {
+    if (!item.name) return false;
+
+    const matchName = item.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+
+    const roleMatch =
+      selectedRoles.length === 0
+        ? true
+        : selectedRoles.includes(item.role?.toLowerCase());
+
+    return matchName && roleMatch;
+  });
+
+  const showModal = () => {
+    form.resetFields();
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+    form.resetFields();
+  };
+
+  const handleDeleteCancel = () => {
+    setIsDeleteModalOpen(false);
+    setRecordToDelete(null);
+  };
+
+  const onFinish = (values) => {
+    let dateFormatted = "1 March, 2025";
+    if (values.date) {
+      dateFormatted = values.date.format("DD MMM, YYYY");
+    }
+
+    const newUser = {
+      id: Date.now().toString(),
+      name: values.name,
+      email: values.email,
+      role: values.role,
+      date: dateFormatted,
+    };
+    setLocalData([...localData, newUser]);
+    setIsModalVisible(false);
+    form.resetFields();
+  };
+
   const editPopoverContent = (
     <div>
       <Input
@@ -127,49 +192,71 @@ const AdminDashboard = () => {
           <input
             className="search-input"
             type="text"
-            name="search-documents"
-            id="search-documents"
-            placeholder="Search documents"
+            name="search-owners"
+            id="search-owners"
+            placeholder="Search owners"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
         <div className="dashboard-actions">
-          <div className="add-owner">
+          <button className="add-owner" onClick={showModal}>
             <p className="add-owner-text">Add Owner</p>
             <img className="add-owner-icon" src={img2} alt="Add Owner" />
-          </div>
-          <p className="sort-text">Sort by</p>
-          <img className="sort-icon" src={img3} alt="Sort Icon" />
-          <img className="filter-icon" src={img4} alt="Filter Icon" />
+          </button>
+          <Popover
+            title="Filter by Role"
+            trigger="click"
+            content={
+              <Checkbox.Group
+                options={roles}
+                value={selectedRoles}
+                onChange={handleRoleFilterChange}
+                style={{ display: "flex", flexDirection: "column" }}
+              />
+            }
+          >
+            <img className="filter-icon" src={img4} alt="Filter Icon" />
+          </Popover>
         </div>
       </div>
-      <Table dataSource={localData} className="table" rowKey="id">
+
+      <Table dataSource={filteredData} className="table" rowKey="id">
         <ColumnGroup title="List Hotel Owners" className="column-group">
           <Column
             title="Name"
             key="name"
             className="column-name"
-            render={(_, record) => (
+            render={(record) => (
               <div className="name-container">
                 <div className="name">{record.name}</div>
                 <div className="email">{record.email}</div>
               </div>
             )}
+            sorter={(a, b) => a.name.localeCompare(b.name)}
           />
           <Column
             title="Role"
+            dataIndex="role"
             key="role"
             className="column-role"
-            render={(_, record) => (
-              <button className={getRoleButtonClass(record.role)}>
-                {record.role}
-              </button>
+            render={(role) => (
+              <button className={getRoleButtonClass(role)}>{role}</button>
             )}
+            sorter={(a, b) =>
+              a.role && b.role ? a.role.localeCompare(b.role) : 0
+            }
           />
           <Column
             title="Create Date"
+            dataIndex="date"
             key="date"
             className="column-date"
-            render={(_, record) => <div className="date">{record.date}</div>}
+            render={(date) => <div className="date">{date}</div>}
+            sorter={(a, b) => {
+              if (!a.date || !b.date) return 0;
+              return a.date.toString().localeCompare(b.date.toString());
+            }}
           />
           <Column
             title="Action"
@@ -204,25 +291,67 @@ const AdminDashboard = () => {
           />
         </ColumnGroup>
       </Table>
+
+      {/* Add User Modal */}
       <Modal
-        title="Delete Confirmation"
-        open={isDeleteModalOpen}
-        onCancel={() => setIsDeleteModalOpen(false)}
-        footer={[
-          <Button key="cancel" onClick={() => setIsDeleteModalOpen(false)}>
-            Cancel
-          </Button>,
-          <Button
-            key="delete"
-            type="primary"
-            danger
-            onClick={() => handleDelete(recordToDelete)}
-          >
-            Delete
-          </Button>,
-        ]}
+        title="Add New Owner"
+        open={isModalVisible}
+        onCancel={handleCancel}
+        footer={null}
       >
-        <p>Are you sure you want to delete this record?</p>
+        <Form layout="vertical" onFinish={onFinish} form={form}>
+          <Form.Item label="Name" name="name" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            label="Email"
+            name="email"
+            rules={[{ required: true, type: "email" }]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item label="Role" name="role" rules={[{ required: true }]}>
+            <Select placeholder="Select Role" style={{ width: "100%" }}>
+              <Select.Option value="Super Admin">Super Admin</Select.Option>
+              <Select.Option value="Owner">Owner</Select.Option>
+              <Select.Option value="Pending">Pending</Select.Option>
+              <Select.Option value="manager">Manager</Select.Option>
+              <Select.Option value="engineer">Engineer</Select.Option>
+              <Select.Option value="technician">Technician</Select.Option>
+              <Select.Option value="customer">Customer</Select.Option>
+            </Select>
+          </Form.Item>
+
+          <Form.Item label="Date" name="date">
+            <DatePicker style={{ width: "100%" }} placeholder="Select date" />
+          </Form.Item>
+
+          <Form.Item>
+            <Button type="primary" htmlType="submit" style={{ marginRight: 8 }}>
+              Submit
+            </Button>
+            <Button onClick={handleCancel}>Cancel</Button>
+          </Form.Item>
+        </Form>
+      </Modal>
+
+      {/* Delete Confirmation Modal */}
+      <Modal
+        title="Delete User"
+        open={isDeleteModalOpen}
+        onOk={handleDelete}
+        onCancel={handleDeleteCancel}
+        okText="Yes, Delete"
+        cancelText="Cancel"
+      >
+        <p>Are you sure you want to delete this user?</p>
+        {recordToDelete && (
+          <p>
+            <strong>{recordToDelete.name}</strong> ({recordToDelete.email})
+          </p>
+        )}
       </Modal>
     </Content>
   );
