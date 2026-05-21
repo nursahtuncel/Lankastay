@@ -1,8 +1,8 @@
-# 🇱🇰 LankaStay - Premium Hotel & Housing Booking Platform
+# LankaStay - Premium Hotel & Housing Booking Platform
 
 LankaStay is a modern, high-performance, and feature-rich hotel and housing booking web application designed specifically for tourists and residents looking for premium accommodation in Sri Lanka. From beautiful beach villas in Galle to cozy retreats in Nuwara Eliya, LankaStay makes finding and booking your next stay a seamless experience.
 
-🌐 **Live Demo:** [https://majestic-tiramisu-4570c7.netlify.app/](https://majestic-tiramisu-4570c7.netlify.app/)
+🌐 **Live Demo:** [Lankastay](https://majestic-tiramisu-4570c7.netlify.app/)
 
 ---
 
@@ -25,10 +25,6 @@ LankaStay is built with a component-driven architecture and boasts a wide variet
 - **Admin Dashboard:** Manage properties, views, and system-wide settings.
 - **User Settings & Profile:** Update user personal info and manage preferences.
 - **Notifications & Messages:** Keep track of booking statuses and communicate directly.
-
-### 🔐 Authentication & Security
-- **Secure Auth Flow:** Dedicated, beautifully styled Login and Registration interfaces.
-- **Token & Cookie Management:** Session persistence utilizing secure cookies.
 
 ### 📞 Help & Support
 - **Support & FAQ Center:** Comprehensive interactive support system with searchable categories and collapsible FAQ dropdowns.
